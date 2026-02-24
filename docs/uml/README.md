@@ -1,4 +1,5 @@
---- 🟢 Usuario
+--- 
+🟢 Usuario
 -- Atributos:
 - id: int
 - nombre: string
