@@ -1,56 +1,49 @@
 # 🛒 MultiMarket
-## Plataforma E-commerce Multivendedor con Recomendaciones Inteligentes
+## Plataforma E-commerce Multivendedor
 
 ---
 
 ## 📌 Descripción
 
-MultiMarket es una plataforma marketplace diseñada para permitir la gestión de múltiples vendedores dentro de un mismo ecosistema digital.
+MultiMarket es una plataforma de comercio electrónico multivendedor diseñada para permitir que múltiples vendedores gestionen productos, inventario y pedidos dentro de un ecosistema digital unificado.
 
-Incluye:
+El sistema incluye:
 
 - Gestión de catálogo e inventario
-- Sistema de pedidos y envíos
+- Procesamiento de pedidos y envíos
 - Sistema de reputación y reseñas
-- Múltiples pasarelas de pago
-- Recomendaciones personalizadas con Machine Learning
-- Arquitectura escalable
-- Integración continua (CI/CD)
-- Monitoreo y logging centralizado
+- Soporte para múltiples pasarelas de pago
+- Motor de recomendaciones basado en Machine Learning
+- Arquitectura escalable con CI/CD
+- Monitoreo centralizado
 
 ---
 
-## 🎯 Objetivos
+## 👥 Equipo de Desarrollo
 
-Desarrollar una plataforma robusta, modular y escalable aplicando principios de arquitectura moderna y buenas prácticas de ingeniería de software.
+- Jesús David Pérez Florian
+- Andres Felipe Florez Perez
 
 ---
 
-## 🏗️ Arquitectura
+## 🏗️ Stack Tecnológico
 
-- Backend: (Por definir)
-- Frontend: (Por definir)
-- Base de datos: (Por definir)
+- Backend: FastAPI (Python)
+- Frontend: React
+- Base de datos: PostgreSQL
+- Machine Learning: scikit-learn
+- Contenedores: Docker
 - CI/CD: GitHub Actions
 - Monitoreo: Prometheus + Grafana
 
 ---
 
-## 📂 Estructura del Proyecto
-- /backend
-- /frontend
-- /ml-module
-- /docs
+## 📊 Estado del Proyecto
+
+🟡 Fase de planificación y diseño arquitectónico.
 
 ---
 
-## 🚀 Estado del Proyecto
+## 🎯 Objetivo
 
-🟡 En fase de diseño y planificación.
-
----
-
-## 👨‍💻 Autor
-
-- Jesús David Pérez Florian
-- Andres Felipe Florez Perez
+Desarrollar una solución marketplace escalable aplicando principios de arquitectura moderna, integración continua y buenas prácticas de ingeniería de software.
