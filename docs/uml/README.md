@@ -1,1 +1,49 @@
-
+--- 🟢 Usuario
+-- Atributos:
+- id: int
+- nombre: string
+- email: string
+- password: string
+- rol: string
+--- Métodos:
+- registrar()
+- login()
+--- 🟢 Producto
+-- Atributos:
+- id: int
+- nombre: string
+- descripcion: string
+- precio: float
+- stock: int
+-- Métodos:
+- actualizarStock()
+--- 🟢 Pedido
+-- Atributos:
+- id: int
+- fecha: date
+- total: float
+- estado: string
+-- Métodos:
+- calcularTotal()
+--- 🟢 Carrito
+-- Atributos:
+- id: int
+-- Métodos:
+- agregarProducto()
+- removerProducto()
+--- 🟢 Reseña
+-- Atributos:
+- id: int
+- comentario: string
+- calificacion: int
+--- 🟢 Pago
+-- Atributos:
+- id: int
+- metodo: string
+- estado: string
+-- Métodos:
+- procesarPago()
+--- 🟢 Recomendacion
+-- Atributos:
+- id: int
+- puntaje: float
