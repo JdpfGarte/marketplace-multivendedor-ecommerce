@@ -1,3 +1,6 @@
+Aqui se hace el diagrama UML
+https://app.diagrams.net/
+---
 # Usuario
 # ────────────────────────────
 ## Atributos:
