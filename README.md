@@ -38,6 +38,20 @@ El sistema incluye:
 
 ---
 
+## 📦 Módulos del Sistema
+
+El sistema MultiMarket se divide en los siguientes módulos:
+
+- Gestión de Usuarios (registro y login)
+- Gestión de Productos
+- Carrito de Compras
+- Gestión de Pedidos
+- Sistema de Pagos
+- Sistema de Reseñas
+- Motor de Recomendaciones
+
+---
+
 ## 📊 Estado del Proyecto
 
 🟡 Fase de planificación y diseño arquitectónico.
