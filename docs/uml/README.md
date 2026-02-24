@@ -1,89 +1,89 @@
-Usuario
-────────────────────────────
-Atributos:
+# Usuario
+# ────────────────────────────
+## Atributos:
 - id: int
 - nombre: string
 - email: string
 - password: string
 - rol: string
 
-Métodos:
+## Métodos:
 - registrar()
 - login()
 
-Descripción:
-Representa a cualquier persona que interactúa con la plataforma (comprador, vendedor o administrador).
+## Descripción:
+- Representa a cualquier persona que interactúa con la plataforma (comprador, vendedor o administrador).
 ---
-Producto
-────────────────────────────
-Atributos:
+# Producto
+# ────────────────────────────
+## Atributos:
 - id: int
 - nombre: string
 - descripcion: string
 - precio: float
 - stock: int
 
-Métodos:
+## Métodos:
 - actualizarStock()
 
-Descripción:
-Entidad que representa los artículos disponibles para la venta dentro del marketplace.
+## Descripción:
+- Entidad que representa los artículos disponibles para la venta dentro del marketplace.
 ---
-Pedido
-────────────────────────────
-Atributos:
+# Pedido
+# ────────────────────────────
+## Atributos:
 - id: int
 - fecha: date
 - total: float
 - estado: string
 
-Métodos:
+## Métodos:
 - calcularTotal()
 
-Descripción:
-Representa una transacción realizada por un comprador.
+## Descripción:
+- Representa una transacción realizada por un comprador.
 ---
-Carrito
-────────────────────────────
-Atributos:
+# Carrito
+# ────────────────────────────
+## Atributos:
 - id: int
 
-Métodos:
+## Métodos:
 - agregarProducto()
 - removerProducto()
 
-Descripción:
-Permite almacenar temporalmente productos antes de realizar la compra.
+## Descripción:
+- Permite almacenar temporalmente productos antes de realizar la compra.
 ---
-Reseña
-────────────────────────────
-Atributos:
+# Reseña
+# ────────────────────────────
+## Atributos:
 - id: int
 - comentario: string
 - calificacion: int
 
-Descripción:
-Permite a los compradores calificar y comentar productos adquiridos.
+## Descripción:
+- Permite a los compradores calificar y comentar productos adquiridos.
 ---
-Pago
-────────────────────────────
-Atributos:
+# Pago
+# ────────────────────────────
+## Atributos:
 - id: int
 - metodo: string
 - estado: string
 
-Métodos:
+## Métodos:
 - procesarPago()
 
-Descripción:
-Gestiona la información y el procesamiento del pago asociado a un pedido.
+## Descripción:
+- Gestiona la información y el procesamiento del pago asociado a un pedido.
 ---
-Recomendacion
-────────────────────────────
-Atributos:
+# Recomendacion
+# ────────────────────────────
+## Atributos:
 - id: int
 - puntaje: float
 
-Descripción:
-Representa el resultado del sistema de recomendaciones basado en comportamiento del usuario.
+## Descripción:
+- Representa el resultado del sistema de recomendaciones basado en comportamiento del usuario.
 ---
