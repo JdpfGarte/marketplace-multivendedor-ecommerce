@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiMarket | Marketplace Multivendedor de Arte</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
+        header { background: #27a71b; color: white; padding: 1rem; text-align: center; border-radius: 8px; }
+        .contenedor-galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .tarjeta-arte { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-top: 5px solid #11a442; }
+        .artista { color: #555; font-style: italic; font-size: 0.9em; }
+        .precio { color: #27ae60; font-weight: bold; font-size: 1.2em; }
+        .stock { font-size: 0.8em; color: #12994f; }
+        .btn-comprar { background: #333; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
 
+    <header>
+        <h1>MultiMarket: Galería Multivendedor</h1>
+        <p>Conectando el arte de <strong>Andrés Flórez</strong>, <strong>Jesús Pérez.</p>
+    </header>
+
+    <section class="contenedor-galeria">
+        <div class="tarjeta-arte">
+            <h3>Atardecer al Óleo</h3>
+            <p class="artista">Vendido por: Andrés Flórez</p>
+            <p class="precio">$450.000 COP</p>
+            <p class="stock">Disponibles: 5 unidades</p>
+            <button class="btn-comprar">Ver detalle de obra</button>
+        </div>
+
+        <div class="tarjeta-arte">
+            <h3>Escultura de Mármol Moderna</h3>
+            <p class="artista">Vendido por: Jesús Pérez</p>
+            <p class="precio">$890.000 COP</p>
+            <p class="stock">Disponibles: 2 unidades</p>
+            <button class="btn-comprar">Ver detalle de obra</button>
+        </div>
+
+        <div class="tarjeta-arte">
+            <h3>Ilustración Digital Cyberpunk</h3>
+            <p class="artista">Vendido por: Galería MultiMarket</p>
+            <p class="precio">$120.000 COP</p>
+            <p class="stock">Disponibles: 10 unidades</p>
+            <button class="btn-comprar">Ver detalle de obra</button>
+        </div>
+    </section>
+
+</body>
+</html>
