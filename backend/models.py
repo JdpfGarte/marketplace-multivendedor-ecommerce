@@ -11,10 +11,10 @@ class obra:
 class fabricadearte:
     @staticmethod
     def crear_producto(id, obra, artista, stock, precio, categoria):
-        # esta fabrica centraliza la creacion
+        # centraliza la creacion
         return obra(id, obra, artista, stock, precio, categoria)
 
-# patron singleton para el inventario unico
+# singleton para el inventario unico
 class inventariosistema:
     _instancia = None
 

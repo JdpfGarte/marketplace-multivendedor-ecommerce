@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from models import inventariosistema, fabricadearte # esto conecta los archivos
+from models import inventariosistema, fabricadearte 
 
 app = FastAPI()
 
@@ -13,7 +13,7 @@ def obtener_catalogo():
 
 @app.get("/recomendar/{obra_id}")
 def recomendar_similares(obra_id: int):
-    #  lista del  singleton para evitar el error en la  imagen
+    #singleton para evitar el error en la imagen
     obra_actual = next((item for item in inventario_global.lista_obras if item["id"] == obra_id), None)
     
     if not obra_actual:
@@ -46,6 +46,6 @@ def verificar_stock(producto_id: int):
 def agregar_con_factory(id: int, nombre: str, artista: str, stock: int, precio: int, categoria: str):
     # factory method
     nueva_obra_obj = fabricadearte.crear_producto(id, nombre, artista, stock, precio, categoria)
-    #  singleton
+    # singleton
     inventario_global.lista_obras.append(nueva_obra_obj.__dict__)
     return {"mensaje": "obra creada con factory y guardada en singleton", "obra": nueva_obra_obj}
