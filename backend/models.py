@@ -10,9 +10,9 @@ class obra:
 
 class fabricadearte:
     @staticmethod
-    def crear_producto(id, obra, artista, stock, precio, categoria):
+    def crear_producto(id, nombre_obra, artista, stock, precio, categoria):
         # centraliza la creacion
-        return obra(id, obra, artista, stock, precio, categoria)
+        return obra(id, nombre_obra, artista, stock, precio, categoria)
 
 # singleton para el inventario unico
 class inventariosistema:
@@ -25,6 +25,6 @@ class inventariosistema:
             cls._instancia.lista_obras = [
                 {"id": 1, "obra": "atardecer al oleo", "artista": "andres florez", "stock": 5, "precio": 450000, "categoria": "pintura"},
                 {"id": 2, "obra": "escultura de marmol", "artista": "jesus perez", "stock": 2, "precio": 890000, "categoria": "escultura"},
-                {"id": 3, "obra": "cyberpunk 2077 art", "artista": "galeria multimarket", "stock": 10, "precio": 120000, "categoria": "digital"}
+                {"id": 3, "obra": "cyberpunk 2077 art", "artista": "galeria ", "stock": 10, "precio": 120000, "categoria": "digital"}
             ]
         return cls._instancia
