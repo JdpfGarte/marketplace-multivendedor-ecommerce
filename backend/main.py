@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from models import inventariosistema, fabricadearte 
+from models import inventariosistema, fabricafisica, fabricadigital
 
 app = FastAPI()
 
@@ -13,12 +13,13 @@ def obtener_catalogo():
 
 @app.get("/recomendar/{obra_id}")
 def recomendar_similares(obra_id: int):
-    #singleton para evitar el error en la imagen
+    # busca en el singleton
     obra_actual = next((item for item in inventario_global.lista_obras if item["id"] == obra_id), None)
     
     if not obra_actual:
         raise HTTPException(status_code=404, detail="obra no encontrada")
     
+    # recomienda fisico o digital
     recomendadas = [item for item in inventario_global.lista_obras if item["categoria"] == obra_actual["categoria"] and item["id"] != obra_id]
     
     return {
@@ -26,26 +27,22 @@ def recomendar_similares(obra_id: int):
         "nuestra_ia_recomienda": recomendadas if recomendadas else "pronto mas obras aqui"
     }
 
-@app.post("/calificar")
-def calificar_obra(obra_id: int, estrellas: int, comentario: str):
-    if estrellas < 1 or estrellas > 5:
-        raise HTTPException(status_code=400, detail="calificacion de 1 a 5 solamente")
-    
-    nueva_resena = {"id_obra": obra_id, "puntos": estrellas, "comentario": comentario}
-    resenas_usuarios.append(nueva_resena)
-    return {"mensaje": "resena guardada", "resena": nueva_resena}
-
-@app.get("/verificar/{producto_id}")
-def verificar_stock(producto_id: int):
-    for producto in inventario_global.lista_obras:
-        if producto["id"] == producto_id:
-            return {"disponible": producto["stock"] > 0, "cantidad": producto["stock"]}
-    raise HTTPException(status_code=404, detail="no encontrado")
-
 @app.post("/nuevo_producto")
-def agregar_con_factory(id: int, nombre: str, artista: str, stock: int, precio: int, categoria: str):
-    # factory method
-    nueva_obra_obj = fabricadearte.crear_producto(id, nombre, artista, stock, precio, categoria)
-    # singleton
+def agregar_con_abstract_factory(id: int, nombre: str, artista: str, stock: int, precio: int, tipo: str, extra: str):
+    #decide que fabrica usar
+    if tipo == "fisico":
+        fabrica = fabricafisica()
+        nueva_obra_obj = fabrica.crear(id, nombre, artista, stock, precio, extra)
+    elif tipo == "digital":
+        fabrica = fabricadigital()
+        nueva_obra_obj = fabrica.crear(id, nombre, artista, stock, precio, extra)
+    else:
+        raise HTTPException(status_code=400, detail="tipo no valido. usa 'fisico' o 'digital'")
+
+    # guardar en el singleton
     inventario_global.lista_obras.append(nueva_obra_obj.__dict__)
-    return {"mensaje": "obra creada con factory y guardada en singleton", "obra": nueva_obra_obj}
+    
+    return {
+        "mensaje": f"obra {tipo} creada con abstract factory y guardada en singleton",
+        "obra": nueva_obra_obj
+    }
