@@ -1,4 +1,4 @@
-# clase base
+# clase base con atributos comunes
 class obra:
     def __init__(self, id, nombre, artista, stock, precio, categoria):
         self.id = id
@@ -7,40 +7,55 @@ class obra:
         self.stock = stock
         self.precio = precio
         self.categoria = categoria
+# atributos opcionales para el builder
+        self.certificado = False
+        self.empaque_regalo = False
 
-# familias nuevas
+# especialidad fisica
 class obrafisica(obra):
     def __init__(self, id, nombre, artista, stock, precio, dimensiones):
-        # llama a la base
         super().__init__(id, nombre, artista, stock, precio, "fisico")
         self.dimensiones = dimensiones
 
+# especialidad digital
 class obradigital(obra):
     def __init__(self, id, nombre, artista, stock, precio, formato):
-        # llama a la base 
         super().__init__(id, nombre, artista, stock, precio, "digital")
         self.formato = formato
 
-# fabricas especializadas
+# clase builder para armar extras paso - paso
+class obrabuilder:
+    def __init__(self, obra_instancia):
+        self.obra = obra_instancia
+
+    def con_certificado(self, tiene_certificado: bool):
+        self.obra.certificado = tiene_certificado
+        return self
+
+    def con_empaque(self, tiene_empaque: bool):
+        self.obra.empaque_regalo = tiene_empaque
+        return self
+
+    def construir(self):
+        return self.obra
+
+# fabrica fisica abstract factory parte 1
 class fabricafisica:
     @staticmethod
     def crear(id, nombre, artista, stock, precio, extra):
         return obrafisica(id, nombre, artista, stock, precio, extra)
 
+# fabrica digital abstract factory parte 2
 class fabricadigital:
     @staticmethod
     def crear(id, nombre, artista, stock, precio, extra):
         return obradigital(id, nombre, artista, stock, precio, extra)
 
-# singleton: datos iniciales
+# singleton para el inventario unico
 class inventariosistema:
     _instancia = None
     def __new__(cls):
         if cls._instancia is None:
             cls._instancia = super(inventariosistema, cls).__new__(cls)
-            cls._instancia.lista_obras = [
-                {"id": 1, "obra": "atardecer al oleo", "artista": "andres florez", "stock": 5, "precio": 450000, "categoria": "fisico"},
-                {"id": 2, "obra": "escultura de marmol", "artista": "jesus perez", "stock": 2, "precio": 890000, "categoria": "fisico"},
-                {"id": 3, "obra": "cyberpunk 2077 art", "artista": "galeria ", "stock": 10, "precio": 120000, "categoria": "digital"}
-            ]
+            cls._instancia.lista_obras = []
         return cls._instancia

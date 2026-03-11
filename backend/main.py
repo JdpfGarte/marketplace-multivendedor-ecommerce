@@ -1,11 +1,10 @@
 from fastapi import FastAPI, HTTPException
-from models import inventariosistema, fabricafisica, fabricadigital
+from models import inventariosistema, fabricafisica, fabricadigital, obrabuilder
 
 app = FastAPI()
 
-# iniciamos el singleton
+# iniciamos el singleton (Patron 1)
 inventario_global = inventariosistema()
-resenas_usuarios = []
 
 @app.get("/catalogo")
 def obtener_catalogo():
@@ -13,13 +12,11 @@ def obtener_catalogo():
 
 @app.get("/recomendar/{obra_id}")
 def recomendar_similares(obra_id: int):
-    # busca en el singleton
     obra_actual = next((item for item in inventario_global.lista_obras if item["id"] == obra_id), None)
     
     if not obra_actual:
         raise HTTPException(status_code=404, detail="obra no encontrada")
     
-    # recomienda fisico o digital
     recomendadas = [item for item in inventario_global.lista_obras if item["categoria"] == obra_actual["categoria"] and item["id"] != obra_id]
     
     return {
@@ -28,21 +25,35 @@ def recomendar_similares(obra_id: int):
     }
 
 @app.post("/nuevo_producto")
-def agregar_con_abstract_factory(id: int, nombre: str, artista: str, stock: int, precio: int, tipo: str, extra: str):
-    #decide que fabrica usar
+def agregar_producto(
+    id: int, nombre: str, artista: str, stock: int, precio: int, 
+    tipo: str, extra: str, 
+    certificado: bool = False, empaque: bool = False # parametros para el builder
+):
+    # 1. decide fabrica Abstract Factory - Patron 2 y 3
     if tipo == "fisico":
         fabrica = fabricafisica()
-        nueva_obra_obj = fabrica.crear(id, nombre, artista, stock, precio, extra)
     elif tipo == "digital":
         fabrica = fabricadigital()
-        nueva_obra_obj = fabrica.crear(id, nombre, artista, stock, precio, extra)
     else:
-        raise HTTPException(status_code=400, detail="tipo no valido. usa 'fisico' o 'digital'")
+        raise HTTPException(status_code=400, detail="tipo no valido")
 
-    # guardar en el singleton
-    inventario_global.lista_obras.append(nueva_obra_obj.__dict__)
+    # 2. crea la base  Factory Method
+    nueva_obra_base = fabrica.crear(id, nombre, artista, stock, precio, extra)
+
+    # 3. aplica extras paso a paso (Builder - Patron 4)
+    builder = obrabuilder(nueva_obra_base)
+    if certificado:
+        builder.con_certificado(True)
+    if empaque:
+        builder.con_empaque(True)
+    
+    obra_final = builder.construir()
+
+    # 4. guardar en el singleton Patron 1
+    inventario_global.lista_obras.append(obra_final.__dict__)
     
     return {
-        "mensaje": f"obra {tipo} creada con abstract factory y guardada en singleton",
-        "obra": nueva_obra_obj
+        "mensaje": "obra creada con los 4 patrones",
+        "obra": obra_final
     }
