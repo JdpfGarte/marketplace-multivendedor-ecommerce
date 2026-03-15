@@ -75,11 +75,10 @@ Estos documentos sirven como **registro del proceso de desarrollo del proyecto**
 
 # 📑 Índice de Reportes
 
-| Semana | Carpeta | PDF |
+| Semana | Carpeta | Documentos |
 |------|------|------|
-| 4 | [Abrir](reporte-4/) | [Ver PDF](reporte-4/reporte_semana_4.docx) |
-| 4 | [Abrir](reporte-4/) | [Ver PDF](reporte-4/pruebas_semana_4.docx) |
-| 6 | [Abrir](reporte-4/) | [Ver PDF](reporte-4/reporte_semana_6.docx) |
+| 4 | [Abrir](reporte-4/) | [Reporte](reporte-4/reporte_semana_4.docx) • [Pruebas](reporte-4/pruebas_semana_4.docx) |
+| 6 | [Abrir](reporte-6/) | [Reporte](reporte-6/reporte_semana_6.docx) |
 
 ---
 
