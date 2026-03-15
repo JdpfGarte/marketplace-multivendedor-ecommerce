@@ -1,47 +1,57 @@
-# Modelo Conceptual
+# 🧠 Modelo Conceptual del Sistema
 
-## Entidades Principales
+El modelo conceptual describe las **entidades principales del sistema y sus relaciones**, permitiendo comprender cómo se organiza la información dentro de la aplicación.
 
-### Usuario
-- id
+## 🎨 Entidad principal: Obra
+
+La entidad central del sistema es **Obra**, que representa cualquier elemento artístico registrado en el inventario de la galería.
+
+Cada obra contiene información como:
+
+- identificador
 - nombre
-- email
-- password
-- rol (comprador / vendedor / administrador)
-
-### Producto
-- id
-- nombre
-- descripcion
+- artista
 - precio
-- stock
-- vendedor_id
+- stock disponible
 
-### Pedido
-- id
-- fecha
-- total
-- estado
-- usuario_id
+## 🖼 Tipos de obra
 
-### Carrito
-- id
-- usuario_id
+El sistema maneja dos tipos principales de obras:
 
-### Reseña
-- id
-- comentario
-- calificacion
-- producto_id
-- usuario_id
+### Obras físicas
 
-### Pago
-- id
-- metodo
-- estado
-- pedido_id
+Representan piezas de arte tradicionales que existen en formato físico.
 
-### Recomendacion
-- id
-- usuario_id
-- producto_id
+Ejemplos:
+
+- pinturas
+- esculturas
+- ilustraciones
+
+Estas obras pueden tener propiedades adicionales como:
+
+- dimensiones
+- tipo de material
+- certificado de autenticidad
+
+### Obras digitales
+
+Representan arte en formato digital.
+
+Ejemplos:
+
+- arte digital
+- ilustraciones digitales
+- NFTs
+
+Estas obras pueden incluir información como:
+
+- formato del archivo
+- resolución
+- tipo de archivo
+
+## 📦 Inventario
+
+Todas las obras registradas se almacenan dentro de un **inventario centralizado**, que mantiene la lista completa de productos disponibles.
+
+Este inventario se gestiona mediante el **patrón Singleton**, garantizando una única instancia dentro del sistema.
