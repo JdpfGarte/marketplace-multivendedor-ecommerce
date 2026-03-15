@@ -293,10 +293,10 @@ Las evidencias se encuentran en:
 
 | Patrón | Evidencia |
 |------|------|
-| Singleton | [Visualizar](docs/pruebas/singleton) |
-| Factory Method | [Visualizar](docs/pruebas/factory_method) |
-| Abstract Factory | [Visualizar](docs/pruebas/abstract_factory) |
-| Builder | [Visualizar](docs/pruebas/builder) |
+| Singleton | [Visualizar](/docs/pruebas/singleton) |
+| Factory Method | [Visualizar](/docs/pruebas/factory_method) |
+| Abstract Factory | [Visualizar](/docs/pruebas/abstract_factory) |
+| Builder | [Visualizar](/docs/pruebas/builder) |
 
 ⬆ [Volver al contenido](#contenido)
 
