@@ -1,22 +1,24 @@
 # 🧪 Pruebas del Sistema
 
-![Testing](https://img.shields.io/badge/Testing-API-green)
-![Swagger](https://img.shields.io/badge/Swagger-Documentation-brightgreen)
+![Testing](https://img.shields.io/badge/Testing-System-blue)
+![Swagger](https://img.shields.io/badge/Swagger-API%20Testing-green)
 
-Este directorio contiene **las evidencias de pruebas realizadas al sistema**.
+Este directorio contiene las **evidencias de pruebas realizadas al sistema**.
 
 Las imágenes almacenadas aquí muestran el funcionamiento de los **endpoints de la API** a través de la documentación interactiva generada por **Swagger UI**.
 
 ---
 
-## 📊 Contenido
+## 📊 Organización de las pruebas
 
-En esta carpeta se incluyen capturas de pantalla de pruebas como:
+Las pruebas están organizadas **por patrón de diseño**, permitiendo analizar el comportamiento de cada implementación de manera independiente.
 
-- Creación de **obra digital**
-- Creación de **obra física**
-- Consulta del **catálogo de obras**
-- Respuestas del servidor a las solicitudes de la API
+| Patrón | Carpeta |
+|------|------|
+| 🧩 Singleton | [Ver pruebas](singleton/) |
+| 🏭 Factory Method | [Ver pruebas](factory_method/) |
+| 🏭 Abstract Factory | [Ver pruebas](abstract_factory/) |
+| 🧱 Builder | [Ver pruebas](builder/) |
 
 ---
 
