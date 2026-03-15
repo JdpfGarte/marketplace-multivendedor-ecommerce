@@ -2,6 +2,8 @@
 
 ![Reporte](https://img.shields.io/badge/Report-Semana%204-blue)
 
+---
+
 <div align="center">
   
 ## 🔗 Navegación rápida
@@ -13,6 +15,8 @@
 📐 [Diagramas UML](../../docs/uml/)
 
 </div>
+
+---
 
 Este directorio contiene el **reporte correspondiente a la Semana 4 del proyecto**.
 
