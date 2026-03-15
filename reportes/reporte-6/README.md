@@ -28,18 +28,113 @@
 
 # 📑 Tabla de Contenidos
 
-- [📘 Introducción](#introduccion)
-- [🎯 Objetivos](#objetivos)
-- [🎬 Demo](#demo)
-- [🏗 Arquitectura](#arquitectura)
-- [🧩 Patrones de Diseño](#patrones)
-- [🔌 API Endpoints](#api)
-- [🧪 Pruebas](#pruebas)
-- [🛠 Tecnologías](#tecnologias)
-- [📂 Estructura](#estructura)
-- [⚙ Metodología](#metodologia)
-- [📚 Referencias](#referencias)
-- [👨‍💻 Autores](#autores)
+<div align="center">
+
+<table>
+
+<tr>
+
+<td align="center" width="200">
+
+### 📘 Introducción  
+[Ir a sección](#introduccion)
+
+</td>
+
+<td align="center" width="200">
+
+### 🎯 Objetivos  
+[Ir a sección](#objetivos)
+
+</td>
+
+<td align="center" width="200">
+
+### 🎬 Demo  
+[Ir a sección](#demo)
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### 🏗 Arquitectura  
+[Ir a sección](#arquitectura)
+
+</td>
+
+<td align="center">
+
+### 🧩 Patrones  
+[Ir a sección](#patrones)
+
+</td>
+
+<td align="center">
+
+### 🔌 API  
+[Ir a sección](#api)
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### 🧪 Pruebas  
+[Ir a sección](#pruebas)
+
+</td>
+
+<td align="center">
+
+### 🛠 Tecnologías  
+[Ir a sección](#tecnologias)
+
+</td>
+
+<td align="center">
+
+### 📂 Estructura  
+[Ir a sección](#estructura)
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### ⚙ Metodología  
+[Ir a sección](#metodologia)
+
+</td>
+
+<td align="center">
+
+### 📚 Referencias  
+[Ir a sección](#referencias)
+
+</td>
+
+<td align="center">
+
+### 👨‍💻 Autores  
+[Ir a sección](#autores)
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
 
 ---
 
