@@ -32,7 +32,7 @@ Verificar que el sistema pueda:
 
 ## Creación de obra física
 
-![Obra física](factory_method2.png)
+![Obra física](factory_method3.png)
 
 ---
 
