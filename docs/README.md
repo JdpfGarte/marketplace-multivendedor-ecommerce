@@ -38,8 +38,6 @@ Entre ellos:
 
 Estos diagramas permiten visualizar **cómo se relacionan las clases y componentes del sistema**.
 
-📏 [Ver diagramas](uml)
-
 ---
 
 ## 🧪 Pruebas
@@ -68,19 +66,6 @@ Cada carpeta contiene:
 - capturas de ejecución del sistema
 - explicación del comportamiento del patrón
 - análisis técnico de los resultados obtenidos
-
----
-
-### 🧩 Pruebas incluidas
-
-| Patrón | Evidencia |
-|-------|-----------|
-| 🧩 Singleton | [Ver pruebas](pruebas/singleton/) |
-| 🏭 Factory Method | [Ver pruebas](pruebas/factory_method/) |
-| 🏭 Abstract Factory | [Ver pruebas](pruebas/abstract_factory/) |
-| 🧱 Builder | [Ver pruebas](pruebas/builder/) |
-
-Estas evidencias permiten visualizar cómo **cada patrón de diseño influye en el comportamiento del sistema** y cómo se aplican en la creación y configuración de las obras dentro del inventario.
 
 ---
 
