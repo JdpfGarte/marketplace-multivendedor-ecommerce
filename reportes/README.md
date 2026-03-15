@@ -77,8 +77,8 @@ Estos documentos sirven como **registro del proceso de desarrollo del proyecto**
 
 | Semana | Reporte |
 |------|------|
-| Semana 4 | [Ver reporte](/reportes/Reporte-Semana-4/) |
-| Semana 6 | [Ver reporte](/reportes/Reporte-Semana-6/) |
+| Semana 4 | [Ver reporte](../reportes/Reporte-Semana-4/) |
+| Semana 6 | [Ver reporte](../reportes/Reporte-Semana-6/) |
 
 ---
 
