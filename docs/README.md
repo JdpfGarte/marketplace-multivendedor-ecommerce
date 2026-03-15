@@ -38,9 +38,8 @@ Entre ellos:
 
 Estos diagramas permiten visualizar **cómo se relacionan las clases y componentes del sistema**.
 
-```
-docs/uml/
-```
+📏 [Ver diagramas](uml)
+
 ---
 
 ## 🧪 Pruebas
