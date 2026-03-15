@@ -45,18 +45,43 @@ docs/uml/
 
 ## 🧪 Pruebas
 
-La carpeta `pruebas` contiene **capturas de pruebas del sistema**, generalmente obtenidas desde **Swagger**,
-que muestran el funcionamiento de los endpoints de la API.
+La carpeta **pruebas** contiene las **evidencias de funcionamiento del sistema** y demuestra la correcta implementación de los **patrones de diseño utilizados en el proyecto**.
 
-Ejemplos:
+Las pruebas consisten en capturas obtenidas durante la ejecución del sistema (generalmente desde **Swagger**), donde se observa el comportamiento de cada patrón aplicado.
 
-- Creación de obra digital
-- Creación de obra física
-- Consulta del catálogo
+En lugar de agrupar todas las capturas en un solo lugar, las pruebas se organizan **por patrón de diseño**, lo que permite analizar cada implementación de manera independiente.
+
+---
+
+### 📁 Organización de las pruebas
 
 ```
 docs/pruebas/
+│
+├── singleton/
+├── factory_method/
+├── abstract_factory/
+└── builder/
 ```
+
+Cada carpeta contiene:
+
+- capturas de ejecución del sistema
+- explicación del comportamiento del patrón
+- análisis técnico de los resultados obtenidos
+
+---
+
+### 🧩 Pruebas incluidas
+
+| Patrón | Evidencia |
+|-------|-----------|
+| 🧩 Singleton | [Ver pruebas](pruebas/singleton/) |
+| 🏭 Factory Method | [Ver pruebas](pruebas/factory_method/) |
+| 🏭 Abstract Factory | [Ver pruebas](pruebas/abstract_factory/) |
+| 🧱 Builder | [Ver pruebas](pruebas/builder/) |
+
+Estas evidencias permiten visualizar cómo **cada patrón de diseño influye en el comportamiento del sistema** y cómo se aplican en la creación y configuración de las obras dentro del inventario.
 
 ---
 
