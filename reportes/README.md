@@ -77,8 +77,9 @@ Estos documentos sirven como **registro del proceso de desarrollo del proyecto**
 
 | Semana | Carpeta | PDF |
 |------|------|------|
-| 4 | [Abrir](Reporte-Semana-4/) | [Ver PDF](Reporte-Semana-4/reporte_semana_4.docx) |
-| 6 | [Abrir](Reporte-Semana-6/) | [Ver PDF](Reporte-Semana-6/reporte_semana_6.docx) |
+| 4 | [Abrir](reporte-4/) | [Ver PDF](reporte-4/reporte_semana_4.docx) |
+| 4 | [Abrir](reporte-4/) | [Ver PDF](reporte-4/pruebas_semana_4.docx) |
+| 6 | [Abrir](reporte-4/) | [Ver PDF](reporte-4/reporte_semana_6.docx) |
 
 ---
 
