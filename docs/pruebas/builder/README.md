@@ -26,6 +26,9 @@ Verificar que el sistema pueda:
 
 ![Configuración obra](builder.png)
 ![Configuración obra](builder1.png)
+
+## Resultado de la configuración
+
 ![Configuración obra](builder2.png)
 
 ---
