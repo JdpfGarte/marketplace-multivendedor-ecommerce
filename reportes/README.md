@@ -75,10 +75,10 @@ Estos documentos sirven como **registro del proceso de desarrollo del proyecto**
 
 # 📑 Índice de Reportes
 
-| Semana | Reporte |
-|------|------|
-| Semana 4 | [Ver reporte](../reportes/Reporte-Semana-4/) |
-| Semana 6 | [Ver reporte](../reportes/Reporte-Semana-6/) |
+| Semana | Carpeta | PDF |
+|------|------|------|
+| 4 | [Abrir](Reporte-Semana-4/) | [Ver PDF](Reporte-Semana-4/reporte_semana_4.docx) |
+| 6 | [Abrir](Reporte-Semana-6/) | [Ver PDF](Reporte-Semana-6/reporte_semana_6.docx) |
 
 ---
 
