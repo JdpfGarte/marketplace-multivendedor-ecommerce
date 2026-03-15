@@ -3,15 +3,28 @@
 ![Docs](https://img.shields.io/badge/Documentation-Project-blue)
 ![UML](https://img.shields.io/badge/UML-Diagrams-orange)
 
-Este directorio contiene **toda la documentación visual y técnica del sistema**.
+Este directorio contiene **toda la documentación técnica y visual del sistema**.
 
 Aquí se almacenan los recursos utilizados para explicar la arquitectura,
 funcionamiento y estructura del proyecto.
 
-## 📁 Contenido
+---
 
-### 📐 UML
-Contiene los **diagramas UML del sistema**, los cuales representan la arquitectura
+## 📚 Documentación
+
+| Documento | Descripción |
+|----------|-------------|
+| 📐 [Arquitectura](docs/arquitectura.md) | Estructura general del sistema |
+| 🧠 [Modelo conceptual](docs/modelo-conceptual.md) | Representación de entidades del sistema |
+| 📋 [Requerimientos](docs/requerimientos.md) | Requerimientos funcionales y no funcionales |
+
+---
+
+# 📁 Contenido
+
+## 📐 UML
+
+La carpeta `uml` contiene los **diagramas UML del sistema**, los cuales representan la arquitectura
 y la implementación de los **patrones de diseño utilizados en el proyecto**.
 
 Entre ellos:
@@ -24,11 +37,14 @@ Entre ellos:
 
 Estos diagramas permiten visualizar **cómo se relacionan las clases y componentes del sistema**.
 
+```
+docs/uml/
+```
 ---
 
-### 🧪 Pruebas
+## 🧪 Pruebas
 
-Contiene **capturas de pruebas del sistema**, generalmente obtenidas desde **Swagger**,
+La carpeta `pruebas` contiene **capturas de pruebas del sistema**, generalmente obtenidas desde **Swagger**,
 que muestran el funcionamiento de los endpoints de la API.
 
 Ejemplos:
@@ -36,6 +52,10 @@ Ejemplos:
 - Creación de obra digital
 - Creación de obra física
 - Consulta del catálogo
+
+```
+docs/pruebas/
+```
 
 ---
 
