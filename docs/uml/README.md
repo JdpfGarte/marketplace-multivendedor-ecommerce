@@ -1,42 +1,29 @@
-# 📚 Documentación del Proyecto
+# 📐 Diagramas UML del Sistema
 
-![Docs](https://img.shields.io/badge/Documentation-Project-blue)
-![UML](https://img.shields.io/badge/UML-Diagrams-orange)
+![UML](https://img.shields.io/badge/UML-Architecture-orange)
 
-Este directorio contiene **toda la documentación visual y técnica del sistema**.
+Este directorio contiene los **diagramas UML utilizados para modelar la arquitectura del sistema**.
 
-Aquí se almacenan los recursos utilizados para explicar la arquitectura,
-funcionamiento y estructura del proyecto.
+Los diagramas permiten visualizar la **estructura del software y la relación entre sus componentes**.
 
-## 📁 Contenido
+## 📊 Diagramas incluidos
 
-### 📐 UML
-Contiene los **diagramas UML del sistema**, los cuales representan la arquitectura
-y la implementación de los **patrones de diseño utilizados en el proyecto**.
-
-Entre ellos:
-
-- Diagrama general del sistema
-- Diagrama del patrón **Singleton**
-- Diagrama del patrón **Factory Method**
-- Diagrama del patrón **Abstract Factory**
-- Diagrama del patrón **Builder**
-
-Estos diagramas permiten visualizar **cómo se relacionan las clases y componentes del sistema**.
+- UML general del sistema
+- Patrón **Singleton**
+- Patrón **Factory Method**
+- Patrón **Abstract Factory**
+- Patrón **Builder**
 
 ---
 
-### 🧪 Pruebas
+## 🎯 Propósito
 
-Contiene **capturas de pruebas del sistema**, generalmente obtenidas desde **Swagger**,
-que muestran el funcionamiento de los endpoints de la API.
+Los diagramas UML permiten:
 
-Ejemplos:
-
-- Creación de obra digital
-- Creación de obra física
-- Consulta del catálogo
+- comprender la arquitectura del sistema
+- identificar los **patrones de diseño implementados**
+- facilitar la explicación técnica del proyecto
 
 ---
 
-📌 Esta carpeta sirve como **soporte visual para la documentación del proyecto y su explicación técnica**.
+📌 Estos diagramas sirven como **guía visual para entender la estructura del código**.
