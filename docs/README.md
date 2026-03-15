@@ -14,9 +14,9 @@ funcionamiento y estructura del proyecto.
 
 | Documento | Descripción |
 |----------|-------------|
-| 📐 [Arquitectura](docs/arquitectura.md) | Estructura general del sistema |
-| 🧠 [Modelo conceptual](docs/modelo-conceptual.md) | Representación de entidades del sistema |
-| 📋 [Requerimientos](docs/requerimientos.md) | Requerimientos funcionales y no funcionales |
+| 📐 [Arquitectura](/arquitectura.md) | Estructura general del sistema |
+| 🧠 [Modelo conceptual](/modelo-conceptual.md) | Representación de entidades del sistema |
+| 📋 [Requerimientos](/requerimientos.md) | Requerimientos funcionales y no funcionales |
 
 ---
 
