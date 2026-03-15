@@ -9,16 +9,16 @@ Las imágenes almacenadas aquí muestran el funcionamiento de los **endpoints de
 
 ---
 
-## 📊 Organización de las pruebas
+## 🧩 Pruebas incluidas
 
-Las pruebas están organizadas **por patrón de diseño**, permitiendo analizar el comportamiento de cada implementación de manera independiente.
+| Patrón | Evidencia |
+|-------|-----------|
+| 🧩 Singleton | [Ver pruebas](pruebas/singleton/) |
+| 🏭 Factory Method | [Ver pruebas](pruebas/factory_method/) |
+| 🏭 Abstract Factory | [Ver pruebas](pruebas/abstract_factory/) |
+| 🧱 Builder | [Ver pruebas](pruebas/builder/) |
 
-| Patrón | Carpeta |
-|------|------|
-| 🧩 Singleton | [Ver pruebas](singleton/) |
-| 🏭 Factory Method | [Ver pruebas](factory_method/) |
-| 🏭 Abstract Factory | [Ver pruebas](abstract_factory/) |
-| 🧱 Builder | [Ver pruebas](builder/) |
+Estas evidencias permiten visualizar cómo **cada patrón de diseño influye en el comportamiento del sistema** y cómo se aplican en la creación y configuración de las obras dentro del inventario.
 
 ---
 
