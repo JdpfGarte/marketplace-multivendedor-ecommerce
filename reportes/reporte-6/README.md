@@ -1,56 +1,26 @@
 <div align="center">
-  
-<a href="https://github.com/JdpfGarte/marketplace-multivendedor-ecommerce/">
-  <p align="center">
-    <img src="/docs/banner.png" width="900">
-  </p>
-</a>
 
----
+# 📊 Reporte Semana 6
+### Marketplace Multivendedor Ecommerce
 
-# 🎨 Sistema de Gestión de Inventario para Galería de Arte
-### 🧩 Implementación de Patrones de Diseño Creacionales
-
-![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-Framework-green?logo=fastapi)
-![UML](https://img.shields.io/badge/UML-Diagrams-orange)
-![Design Patterns](https://img.shields.io/badge/Design%20Patterns-Singleton%20|%20Factory%20|%20Builder-blueviolet)
-![Status](https://img.shields.io/badge/Status-Academic%20Project-lightgrey)
-
-### 📚 Proyecto académico de Patrones de Software
-### 🚀 API REST para gestión de obras físicas y digitales
+![Report](https://img.shields.io/badge/Report-Week%206-blue)
+![Project](https://img.shields.io/badge/Project-Academic-lightgrey)
 
 </div>
 
 ---
 
-# 🏷 Badges del Proyecto
+<div align="center">
+  
+## 🔗 Navegación rápida
 
-## 🧰 Tecnologías
+🏠 [Repositorio principal](../../)
+📊 [Índice de reportes](../)
+📚 [Documentación](../../docs/)
+🧪 [Pruebas](../../docs/pruebas/)
+📐 [Diagramas UML](../../docs/uml/)
 
-![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-Framework-green?logo=fastapi)
-![Swagger](https://img.shields.io/badge/Swagger-API%20Docs-brightgreen?logo=swagger)
-![UML](https://img.shields.io/badge/UML-Diagrams-orange)
-![Git](https://img.shields.io/badge/Git-Version%20Control-red?logo=git)
-![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)
-
----
-
-## 🧩 Patrones de Diseño
-
-![Singleton](https://img.shields.io/badge/pattern-Singleton-purple)
-![Factory Method](https://img.shields.io/badge/pattern-Factory%20Method-blue)
-![Abstract Factory](https://img.shields.io/badge/pattern-Abstract%20Factory-orange)
-![Builder](https://img.shields.io/badge/pattern-Builder-yellow)
-
----
-
-## 🚦 Estado del Proyecto
-
-![Status](https://img.shields.io/badge/status-active-green)
-![Project](https://img.shields.io/badge/project-academic-lightgrey)
-![Maintenance](https://img.shields.io/badge/maintained-yes-green)
+</div>
 
 ---
 
