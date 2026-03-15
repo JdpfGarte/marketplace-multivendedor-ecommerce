@@ -17,6 +17,7 @@ funcionamiento y estructura del proyecto.
 | 📐 [Arquitectura](arquitectura.md) | Estructura general del sistema |
 | 🧠 [Modelo conceptual](modelo-conceptual.md) | Representación de entidades del sistema |
 | 📋 [Requerimientos](requerimientos.md) | Requerimientos funcionales y no funcionales |
+| 🌍 [Roadmap](roadmap.md) | Plan de desarrollo y evolución del proyecto |
 
 ---
 
