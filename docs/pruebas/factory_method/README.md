@@ -26,13 +26,13 @@ Verificar que el sistema pueda:
 
 ## Creación de obra digital
 
-![Obra digital](factory_method.png)
+![Obra digital](factory_method1.png)
 
 ---
 
 ## Creación de obra física
 
-![Obra física](factory_method1.png)
+![Obra física](factory_method.png)
 
 ---
 
