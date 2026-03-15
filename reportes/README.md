@@ -110,6 +110,4 @@ reportes/
 
 ```
 
----
-
 📌 Esta carpeta funciona como **historial documentado del desarrollo del proyecto**.
