@@ -1,23 +1,33 @@
-# Requerimientos del Sistema
+# 📋 Requerimientos del Sistema
 
-## 1. Requerimientos Funcionales
+Esta sección describe los **requerimientos funcionales y no funcionales** del sistema.
 
-RF1: El sistema debe permitir registro de usuarios.
-RF2: El sistema debe permitir autenticación (login).
-RF3: El vendedor debe poder crear, editar y eliminar productos.
-RF4: El comprador debe poder visualizar productos.
-RF5: El comprador debe poder agregar productos al carrito.
-RF6: El comprador debe poder realizar pedidos.
-RF7: El sistema debe procesar pagos.
-RF8: El comprador debe poder dejar reseñas.
-RF9: El sistema debe generar recomendaciones personalizadas.
+## 🎯 Requerimientos funcionales
 
----
+El sistema debe permitir:
 
-## 2. Requerimientos No Funcionales
+1. Registrar nuevas obras en el inventario.
+2. Diferenciar entre obras físicas y digitales.
+3. Consultar el catálogo completo de obras.
+4. Recomendar obras similares a partir de una obra existente.
+5. Gestionar el inventario de manera centralizada.
 
-RNF1: El sistema debe soportar múltiples usuarios concurrentes.
-RNF2: La autenticación debe ser segura.
-RNF3: El sistema debe ser escalable.
-RNF4: El sistema debe permitir integración con servicios externos de pago.
-RNF5: Debe implementarse integración continua (CI/CD).
+## ⚙ Requerimientos no funcionales
+
+El sistema debe cumplir con los siguientes aspectos técnicos:
+
+- Implementarse utilizando **Python**.
+- Exponer una **API REST** utilizando **FastAPI**.
+- Aplicar **patrones de diseño creacionales**.
+- Mantener una estructura modular que facilite su mantenimiento.
+
+## 🧩 Requerimientos de diseño
+
+El sistema debe implementar los siguientes patrones:
+
+- **Singleton**
+- **Factory Method**
+- **Abstract Factory**
+- **Builder**
+
+Estos patrones permiten mejorar la organización del código y facilitar la extensión del sistema.
