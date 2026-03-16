@@ -1,3 +1,20 @@
+## 📌 Nota
+
+### 📂 Ruta de la documentación — Parcial I (Semana 6)
+
+```
+main/reportes/reporte-6/
+```
+
+En esta carpeta se puede consultar la documentación correspondiente al **Parcial I - Semana 6**.
+
+Los archivos disponibles son:
+
+- **reporte_semana_6.docx** → Documento principal del reporte.
+- **README.md** → Información y explicación adicional del contenido del reporte.
+
+---
+
 <div align="center">
   
 <a href="https://github.com/JdpfGarte/marketplace-multivendedor-ecommerce/">
