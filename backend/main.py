@@ -1,36 +1,27 @@
+#python -m uvicorn main:app --reload
+
 from fastapi import FastAPI, HTTPException
-from models import inventariosistema, fabricafisica, fabricadigital, obrabuilder
+from models import (
+    inventariosistema, fabricafisica, fabricadigital, 
+    obrabuilder, adaptadorartesubasta
+)
 
 app = FastAPI()
 
-# iniciamos el singleton (Patron 1)
+# patron singleton gestiona los datos globales
 inventario_global = inventariosistema()
 
-@app.get("/catalogo")
-def obtener_catalogo():
-    return {"galeria": inventario_global.lista_obras}
-
-@app.get("/recomendar/{obra_id}")
-def recomendar_similares(obra_id: int):
-    obra_actual = next((item for item in inventario_global.lista_obras if item["id"] == obra_id), None)
-    
-    if not obra_actual:
-        raise HTTPException(status_code=404, detail="obra no encontrada")
-    
-    recomendadas = [item for item in inventario_global.lista_obras if item["categoria"] == obra_actual["categoria"] and item["id"] != obra_id]
-    
-    return {
-        "porque_te_gusto": obra_actual["obra"],
-        "nuestra_ia_recomienda": recomendadas if recomendadas else "pronto mas obras aqui"
-    }
-
-@app.post("/nuevo_producto")
+@app.post("/nuevo_producto_u_obra")
 def agregar_producto(
     id: int, nombre: str, artista: str, stock: int, precio: int, 
     tipo: str, extra: str, 
-    certificado: bool = False, empaque: bool = False # parametros para el builder
+    certificado: bool = False, empaque: bool = False, seguro: int = 0
 ):
-    # 1. decide fabrica Abstract Factory - Patron 2 y 3
+    # regla de integridad por el singleto
+    if any(o.id == id for o in inventario_global.lista_obras):
+        raise HTTPException(status_code=400, detail=f"el id {id} ya esta en uso. elige uno diferente.")
+
+    # patron abstract factory segun el tipo de obra
     if tipo == "fisico":
         fabrica = fabricafisica()
     elif tipo == "digital":
@@ -38,22 +29,116 @@ def agregar_producto(
     else:
         raise HTTPException(status_code=400, detail="tipo no valido")
 
-    # 2. crea la base  Factory Method
-    nueva_obra_base = fabrica.crear(id, nombre, artista, stock, precio, extra)
+    try:
+        # patron factory method crea la instancia base de la obra
+        nueva_obra_base = fabrica.crear(id, nombre, artista, stock, precio, extra)
 
-    # 3. aplica extras paso a paso (Builder - Patron 4)
-    builder = obrabuilder(nueva_obra_base)
-    if certificado:
-        builder.con_certificado(True)
-    if empaque:
-        builder.con_empaque(True)
+        # patron builder configuracion paso a paso de atributos opcionales
+        builder = obrabuilder(nueva_obra_base)
+        builder.con_certificado(certificado).con_empaque(empaque)
+        
+        if seguro > 0:
+            builder.con_seguro(seguro)
+        
+        obra_final = builder.construir()
+
+        # persistencia mediante el singleton
+        inventario_global.lista_obras.append(obra_final)
+        inventario_global.guardar_datos() 
+        
+        return {"mensaje": "obra premium creada y guardada", "obra": obra_final.__dict__}
+
+    except ValueError as e:
+        # captura validaciones builder
+        raise HTTPException(status_code=400, detail=str(e))
     
-    obra_final = builder.construir()
+@app.post("/clonar_obra_por/{obra_id}")
+def clonar_serie(obra_id: int, nuevo_id: int):
+    # patron prototype buscamos el objeto original para ser clonado
+    original = next((item for item in inventario_global.lista_obras if item.id == obra_id), None)
+    if not original:
+        raise HTTPException(status_code=404, detail="obra original no encontrada")
+    
+    # uso del metodo clonar definido en el patron prototipe
+    nueva_copia = original.clonar(nuevo_id)
+    inventario_global.lista_obras.append(nueva_copia)
+    inventario_global.guardar_datos()
+    
+    return {"mensaje": f"copia edicion {nueva_copia.edicion} generada y guardada", "obra": nueva_copia.__dict__}
 
-    # 4. guardar en el singleton Patron 1
-    inventario_global.lista_obras.append(obra_final.__dict__)
+@app.get("/buscar_artista_por_su/{nombre}")
+def buscar_obras(nombre: str):
+    #busqueda integrado en el singleton
+    resultados = inventario_global.buscar_por_artista(nombre)
+    return {"encontradas": [o.__dict__ for o in resultados]}
+
+@app.get("/catalogo_para_ver_todo")
+def obtener_catalogo():
+    # acceso a datos mediante singleton
+    return {"galeria": [o.__dict__ for o in inventario_global.lista_obras]}
+
+@app.get("/subastar/{obra_id}")
+def subastar_obra(obra_id: int):
+    obra_encontrada = next((item for item in inventario_global.lista_obras if item.id == obra_id), None)
+    if not obra_encontrada:
+        raise HTTPException(status_code=404, detail="obra no encontrada")
+    
+    # patron adapter: las obra interna para un servicio externo de subastas
+    adaptador = adaptadorartesubasta(obra_encontrada)
+    return {"resultado": adaptador.exportar_por_formato("uts")}
+
+@app.delete("/eliminar_obra/{obra_id}")
+def eliminar_obra(obra_id: int):
+    # limpieza en el singleton
+    obra_a_eliminar = next((item for item in inventario_global.lista_obras if item.id == obra_id), None)
+    
+    if not obra_a_eliminar:
+        raise HTTPException(status_code=404, detail=f"no se encontro ninguna obra con el id {obra_id}")
+
+    inventario_global.lista_obras.remove(obra_a_eliminar)
+    inventario_global.guardar_datos()
+
+    return {"mensaje": f"obra con id {obra_id} eliminada exitosamente"}
+
+@app.get("/verificar_autenticidad/{obra_id}")
+def verificar_obra(obra_id: int):
+    #seguridad usando los metodos generados por el prototipe
+    obra_encontrada = next((item for item in inventario_global.lista_obras if item.id == obra_id), None)
+    
+    if not obra_encontrada:
+        raise HTTPException(status_code=404, detail="obra no registrada")
+
+    tipo_de_obra = "original" if obra_encontrada.edicion == 1 else f"copia legal #{obra_encontrada.edicion}"
     
     return {
-        "mensaje": "obra creada con los 4 patrones",
-        "obra": obra_final
+        "verificacion": "exitosa",
+        "mensaje": f"esta es una {tipo_de_obra} de la obra '{obra_encontrada.obra}'",
+        "codigo_seguridad_uts": obra_encontrada.sello
     }
+
+@app.post("/generar_coleccion_masa/{obra_id}")
+def generar_masa(obra_id: int, cantidad: int, id_inicio: int):
+    # patron prototype generacion de multiples clones
+    for i in range(id_inicio, id_inicio + cantidad):
+        if any(o.id == i for o in inventario_global.lista_obras):
+            raise HTTPException(status_code=400, detail=f"el id {i} ya esta ocupado")
+
+    coleccion = inventario_global.generar_coleccion(obra_id, cantidad, id_inicio)
+    if not coleccion:
+        raise HTTPException(status_code=404, detail="obra base no encontrada")
+    
+    return {
+        "mensaje": f"se han generado {cantidad} copias legales mediante prototype",
+        "ejemplos": [c.__dict__ for c in coleccion[:2]]
+    }
+
+@app.get("/exportar_a_plataforma/{obra_id}")
+def exportar_obra(obra_id: int, destino: str = "uts"):
+    obra_encontrada = next((item for item in inventario_global.lista_obras if item.id == obra_id), None)
+    if not obra_encontrada:
+        raise HTTPException(status_code=404, detail="obra no encontrada")
+    
+    # patron adapter traduce la obra al formato especifico solicitado 
+    adaptador = adaptadorartesubasta(obra_encontrada)
+    resultado = adaptador.exportar_por_formato(destino)
+    return {"plataforma_destino": destino, "respuesta_servidor": resultado}
