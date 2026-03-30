@@ -13,12 +13,12 @@ Las imágenes almacenadas aquí muestran el funcionamiento de los **endpoints de
 
 | Patrón | Evidencia |
 |-------|-----------|
-| 🧩 Singleton | [Ver pruebas](/singleton/) |
-| 🏭 Factory Method | [Ver pruebas](/factory_method/) |
-| 🏭 Abstract Factory | [Ver pruebas](/abstract_factory/) |
-| 🧱 Builder | [Ver pruebas](/builder/) |
-| 🧬 Prototype | [Ver pruebas](/prototype/) |
-| 🔌 Adapter | [Ver pruebas](/adapter/) |
+| 🧩 Singleton | [Ver pruebas](../../docs/pruebas/singleton/) |
+| 🏭 Factory Method | [Ver pruebas](../../docs/pruebas/factory_method/) |
+| 🏭 Abstract Factory | [Ver pruebas](../../docs/pruebas/abstract_factory/) |
+| 🧱 Builder | [Ver pruebas](../../docs/pruebas/builder/) |
+| 🧬 Prototype | [Ver pruebas](../../docs/pruebas/prototype/) |
+| 🔌 Adapter | [Ver pruebas](../../docs/pruebas/adapter/) |
 
 Estas evidencias permiten visualizar cómo **cada patrón de diseño influye en el comportamiento del sistema** y cómo se aplican en la creación y configuración de las obras dentro del inventario.
 
