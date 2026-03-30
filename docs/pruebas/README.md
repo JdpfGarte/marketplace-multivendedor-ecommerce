@@ -17,6 +17,8 @@ Las imágenes almacenadas aquí muestran el funcionamiento de los **endpoints de
 | 🏭 Factory Method | [Ver pruebas](pruebas/factory_method/) |
 | 🏭 Abstract Factory | [Ver pruebas](pruebas/abstract_factory/) |
 | 🧱 Builder | [Ver pruebas](pruebas/builder/) |
+| 🧬 Prototype | [Ver pruebas](pruebas/prototype/) |
+| 🔌 Adapter | [Ver pruebas](pruebas/adapter/) |
 
 Estas evidencias permiten visualizar cómo **cada patrón de diseño influye en el comportamiento del sistema** y cómo se aplican en la creación y configuración de las obras dentro del inventario.
 
