@@ -34,10 +34,10 @@ Los patrones utilizados son:
 
 ## 📐 Arquitectura general
 
-La arquitectura del sistema puede representarse mediante un diagrama UML general ubicado en:
+La arquitectura del sistema puede representarse mediante un diagrama UML general ACTUALIZADO ubicado en:
 
 ```
-docs/uml/uml_general.png
+docs/uml/uml_generalV2.png
 ```
 
 Este diagrama permite visualizar la relación entre las clases y los patrones implementados.
