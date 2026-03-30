@@ -10,33 +10,17 @@ Los diagramas permiten visualizar la **estructura del software y la relación en
 
 ## 📊 Diagramas incluidos
 
-### 🧩 UML general del sistema
+### 🧩 UML general del sistema (Actualizado)
 
-![UML general](uml_general.png)
-
----
-
-### 🧩 Patrón Singleton
-
-![Singleton](singleton.png)
+![UML general](uml_generalV2-Segmentado.png)
 
 ---
 
-### 🧩 Patrón Factory Method
-
-![Factory Method](factory_method.png)
-
----
-
-### 🧩 Patrón Abstract Factory
-
-![Abstract Factory](abstract_factory.png)
-
----
-
-### 🧩 Patrón Builder
-
-![Builder](builder.png)
+🔴 **Rojo:** Patrón Singleton (gestión centralizada del inventario)  
+🔵 **Azul:** Abstract Factory y Factory Method (creación de obras físicas y digitales)  
+🟢 **Verde:** Patrón Builder (construcción y validación de objetos)  
+🟡 **Amarillo:** Patrón Prototype (clonación y autenticidad de obras)  
+🟣 **Morado:** Patrón Adapter (adaptación a plataformas externas)  
 
 ---
 
@@ -46,7 +30,8 @@ Los diagramas UML permiten:
 
 - comprender la arquitectura del sistema
 - identificar los patrones de diseño implementados
-- facilitar la explicación técnica del proyecto
+- facilitar la explicación técnica y estructural del proyecto
+- visualizar la relación entre las clases y componentes
 
 ---
 
