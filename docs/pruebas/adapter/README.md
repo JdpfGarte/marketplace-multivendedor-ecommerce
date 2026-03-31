@@ -31,15 +31,9 @@ Verificar que el sistema pueda:
 
 ---
 
-## Exportación a UTS
-
-![UTS](adapter2.png)
-
----
-
 ## Resultado de exportación
 
-![Resultado](adapter3.png)
+![Resultado](adapter2.png)
 
 ---
 
