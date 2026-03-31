@@ -231,6 +231,10 @@ Se implementa como una **API REST utilizando FastAPI**, integrando múltiples pa
 
 | Patrón | Tipo | Propósito | Aplicación |
 |------|------|------|------|
+| Singleton | Creacional | Instancia única | Inventario global |
+| Factory Method | Creacional | Crear objetos | Obras |
+| Abstract Factory | Creacional | Familias | Físico / Digital |
+| Builder | Creacional | Construcción | Configuración |
 | Prototype | Creacional | Clonación | Copias de obras |
 | Adapter | Estructural | Adaptación | Exportación externa |
 
