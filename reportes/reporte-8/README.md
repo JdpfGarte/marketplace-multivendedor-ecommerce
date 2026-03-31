@@ -231,28 +231,8 @@ Se implementa como una **API REST utilizando FastAPI**, integrando múltiples pa
 
 | Patrón | Tipo | Propósito | Aplicación |
 |------|------|------|------|
-| Singleton | Creacional | Instancia única | Inventario global |
-| Factory Method | Creacional | Crear objetos | Obras |
-| Abstract Factory | Creacional | Familias | Físico / Digital |
-| Builder | Creacional | Construcción | Configuración |
 | Prototype | Creacional | Clonación | Copias de obras |
 | Adapter | Estructural | Adaptación | Exportación externa |
-
----
-
-## Singleton
-
-```
-python
-class inventariosistema:
-    _instancia = None
-
-    def __new__(cls):
-        if cls._instancia is None:
-            cls._instancia = super().__new__(cls)
-            cls._instancia.lista_obras = []
-        return cls._instancia
-```
 
 ---
 
