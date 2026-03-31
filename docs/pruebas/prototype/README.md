@@ -28,10 +28,6 @@ Verificar que el sistema pueda:
 
 ![Clonación](prototype1.png)
 
----
-
-## Generación en masa
-
 ![Generación](prototype2.png)
 
 ---
