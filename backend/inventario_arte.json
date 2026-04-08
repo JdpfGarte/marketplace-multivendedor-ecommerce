@@ -82,5 +82,33 @@
         "seguro": "asegurado por 6000 usd",
         "sello": "COPIA-LEGAL-85BB31B4",
         "formato": "png"
+    },
+    {
+        "id": 24,
+        "obra": "torroDla",
+        "artista": "carloMosa",
+        "stock": 3,
+        "precio": 12000,
+        "categoria": "digital",
+        "certificado": true,
+        "empaque_regalo": false,
+        "edicion": 1,
+        "seguro": "asegurado por 8000 usd",
+        "sello": "ORIGINAL-96929443",
+        "formato": "png"
+    },
+    {
+        "id": 25,
+        "obra": "torrorRojo",
+        "artista": "carloMosa",
+        "stock": 2,
+        "precio": 10000,
+        "categoria": "digital",
+        "certificado": false,
+        "empaque_regalo": false,
+        "edicion": 1,
+        "seguro": "sin seguro",
+        "sello": "ORIGINAL-77E6FA2A",
+        "formato": "png"
     }
 ]

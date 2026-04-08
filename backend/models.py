@@ -157,3 +157,76 @@ class adaptadorartesubasta:
                 "tipo_bien": self.obra.categoria
             }
         return self.servicio.enviar(metadata)
+    
+    # -nuevo decorator ---
+from abc import ABC, abstractmethod
+
+# Interfaz notificaciones
+class Notificacion(ABC):
+    @abstractmethod
+    def enviar(self, mensaje: str) -> str:
+        pass
+
+# notificación más básica
+class NotificacionBasica(Notificacion):
+    def enviar(self, mensaje: str) -> str:
+        return f"SISTEMA: {mensaje}"
+
+# base
+class NotificacionDecorador(Notificacion):
+    def __init__(self, envoltorio: Notificacion):
+        self._envoltorio = envoltorio
+
+    def enviar(self, mensaje: str) -> str:
+        return self._envoltorio.enviar(mensaje)
+
+# 1: Email
+class EmailDecorador(NotificacionDecorador):
+    def enviar(self, mensaje: str) -> str:
+        resultado = super().enviar(mensaje)
+        return f"{resultado} | [EMAIL ENVIADO AL ARTISTA]"
+
+#2: WhatsApp
+class WhatsAppDecorador(NotificacionDecorador):
+    def enviar(self, mensaje: str) -> str:
+        resultado = super().enviar(mensaje)
+        return f"{resultado} | [WHATSAPP ENVIADO AL ADMIN]"
+    
+
+
+
+    # -nuevo bridge -
+from abc import ABC, abstractmethod
+
+# implementacion: define como se genera el archivo
+class formatointerface(ABC):
+    @abstractmethod
+    def generar(self, contenido: str) -> str:
+        pass
+
+class formatopdf(formatointerface):
+    def generar(self, contenido: str) -> str:
+        return f"archivo [reporte_uts.pdf] generado con éxito. contenido: {contenido}"
+
+class formatoexcel(formatointerface):
+    def generar(self, contenido: str) -> str:
+        return f"archivo [reporte_uts.xlsx] generado con éxito. contenido: {contenido}"
+
+# define que informacion lleva el reporte
+class reporte(ABC):
+    def __init__(self, formato: formatointerface):
+        # puente unimos el reporte con un formato
+        self.formato = formato
+
+    @abstractmethod
+    def crear_reporte(self, lista_obras: list) -> str:
+        pass
+
+class reporteinventario(reporte):
+    def crear_reporte(self, lista_obras: list) -> str:
+        # logica para resumir el inventario
+        total_obras = len(lista_obras)
+        valor_total = sum(o.precio for o in lista_obras)
+        resumen = f"total de obras: {total_obras}, valor comercial: ${valor_total} usd"
+        # el puente envia los datos al formato elegido (pdf o excel)
+        return self.formato.generar(resumen)
