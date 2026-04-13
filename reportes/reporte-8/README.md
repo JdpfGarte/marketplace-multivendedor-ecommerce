@@ -263,6 +263,8 @@ class adaptadorartesubasta:
         }
 ```
 
+⬆ [Volver al contenido](#contenido)
+
 ---
 
 <a name="api"></a>
