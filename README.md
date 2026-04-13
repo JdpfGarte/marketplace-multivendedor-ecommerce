@@ -26,12 +26,13 @@ Los archivos disponibles son:
 ---
 
 # 🛒 Marketplace Multivendedor Ecommerce
-### 🧩 Implementación de Patrones de Diseño Creacionales
+### 🧩 Implementación de Patrones de Diseño
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Framework-green?logo=fastapi)
 ![UML](https://img.shields.io/badge/UML-Diagrams-orange)
-![Design Patterns](https://img.shields.io/badge/Design%20Patterns-Singleton%20|%20Factory%20|%20Builder-blueviolet)
+![Creational](https://img.shields.io/badge/Creational-Singleton%20|%20Factory%20|%20Abstract%20Factory%20|%20Builder%20|%20Prototype-blue)
+![Structural](https://img.shields.io/badge/Structural-Adapter%20|%20Bridge%20|%20Decorator-green)
 ![Status](https://img.shields.io/badge/Status-Academic%20Project-lightgrey)
 
 ### 📚 Proyecto académico de Patrones de Software
@@ -60,6 +61,10 @@ Los archivos disponibles son:
 ![Factory Method](https://img.shields.io/badge/pattern-Factory%20Method-blue)
 ![Abstract Factory](https://img.shields.io/badge/pattern-Abstract%20Factory-orange)
 ![Builder](https://img.shields.io/badge/pattern-Builder-yellow)
+![Prototype](https://img.shields.io/badge/pattern-Prototype-green)
+![Adapter](https://img.shields.io/badge/pattern-Adapter-red)
+![Bridge](https://img.shields.io/badge/pattern-Bridge-lightgrey)
+![Decorator](https://img.shields.io/badge/pattern-Decorator-pink)
 
 ---
 
