@@ -204,7 +204,7 @@ Se implementa como una **API REST utilizando FastAPI**, integrando múltiples pa
 # 🏗 Arquitectura del Sistema
 
 <p align="center">
-  <img src="/docs/uml/uml_generalV3 - Segmentado.png" width="510">
+  <img src="/docs/uml/uml_generalV3 - Segmentado.png" width="1100">
 </p>
 
 ⬆ [Volver al contenido](#contenido)
