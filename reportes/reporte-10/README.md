@@ -184,7 +184,7 @@ Se implementa como una **API REST utilizando FastAPI**, integrando múltiples pa
 ## 📊 Generación de reportes (Bridge)
 
 <p align="center">
-  <img src="/docs/pruebas/bridge/bridge1.png" width="310">
+  <img src="/docs/pruebas/bridge/bridge1.png" width="550">
 </p>
 
 ---
@@ -192,7 +192,7 @@ Se implementa como una **API REST utilizando FastAPI**, integrando múltiples pa
 ## 📩 Notificaciones dinámicas (Decorator)
 
 <p align="center">
-  <img src="/docs/pruebas/decorator/decorator1.png" width="310">
+  <img src="/docs/pruebas/decorator/decorator1.png" width="550">
 </p>
 
 ⬆ [Volver al contenido](#contenido)
