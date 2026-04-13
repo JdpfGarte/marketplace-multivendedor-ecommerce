@@ -26,9 +26,13 @@ Verificar que el sistema pueda:
 
 ## Generación de reporte
 
-![Reporte PDF](bridge1.png)
+<p align="center">
+  <img src="bridge1.png" width="550">
+</p>
 
-![Reporte Excel](bridge2.png)
+<p align="center">
+  <img src="bridge2.png" width=550">
+</p>
 
 ---
 
