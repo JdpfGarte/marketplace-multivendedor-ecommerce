@@ -163,17 +163,23 @@ marketplace-multivendedor-ecommerce/
 │   ├── roadmap.md
 │   │
 │   ├── uml/
-│   │   └── uml_general.png
+│   │   └── uml_generalV3 - Segmentado.png
 │   │
 │   └── pruebas/
 │       ├── singleton/
 │       ├── factory_method/
 │       ├── abstract_factory/
-│       └── builder/
+│       ├── builder/
+│       ├── adapter/
+│       ├── prototype/
+│       ├── bridge/
+│       └── decorator/
 │
 ├── reportes/
 │   ├── reporte-4/
-│   └── reporte-6/
+│   ├── reporte-6/
+│   ├── reporte-8/
+│   └── reporte-10/
 ```
 
 ---
