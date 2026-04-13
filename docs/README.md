@@ -37,6 +37,8 @@ Entre ellos:
 - Diagrama del patrón **Builder**
 - Diagrama del patrón **Prototype**
 - Diagrama del patrón **Adapter**
+- Diagrama del patrón **Bridge**
+- Diagrama del patrón **Decorator**
 
 Estos diagramas permiten visualizar **la relación entre clases, componentes y patrones de diseño**, facilitando la comprensión del sistema.
 
@@ -62,7 +64,9 @@ docs/pruebas/
 ├── abstract_factory/
 ├── builder/
 ├── prototype/
-└── adapter/
+├── adapter/
+├── bridge/
+└── decorator/
 ```
 
 Cada carpeta contiene:
