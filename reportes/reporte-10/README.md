@@ -255,6 +255,8 @@ if seguro > 0:
 mensaje = notificador.enviar("obra registrada")
 ```
 
+⬆ [Volver al contenido](#contenido)
+
 ---
 
 <a name="api"></a>
