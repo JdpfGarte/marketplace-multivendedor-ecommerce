@@ -126,7 +126,7 @@ MultiMarket se divide en los siguientes módulos principales:
 # 🏗 Arquitectura del Sistema
 
 <p align="center">
-  <img src="docs/uml/uml_generalV3 - Segmentado.png" width="450">
+  <img src="docs/uml/uml_generalV3 - Segmentado.png" width="750">
 </p>
 
 La arquitectura del sistema está diseñada para ser **modular y escalable**, permitiendo integrar nuevas funcionalidades sin afectar el núcleo del sistema.
