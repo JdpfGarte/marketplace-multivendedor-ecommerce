@@ -26,6 +26,7 @@ Estos documentos sirven como **registro del proceso de desarrollo del proyecto**
 | 6 | [Abrir](reporte-6/) | [Reporte](reporte-6/reporte_semana_6.docx) |
 | 8 | [Abrir](reporte-8/) | [Reporte](reporte-8/reporte_semana_8.docx) |
 | 10 | [Abrir](reporte-10/) | [Reporte](reporte-10/reporte_semana_10.docx) |
+| 12 | [Abrir](reporte-12/) | [Reporte](reporte-12/reporte_semana_12.docx) |
 
 ---
 
@@ -61,8 +62,11 @@ reportes/
 |   ├── README.md
 |   └── reporte_semana_8.docx
 └── reporte-10/
+|   ├── README.md
+|   └── reporte_semana_10.docx
+└── reporte-12/
     ├── README.md
-    └── reporte_semana_10.docx
+    └── reporte_semana_12.docx
 ```
 
 📌 Esta carpeta funciona como **historial documentado del desarrollo del proyecto**.
