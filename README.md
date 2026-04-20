@@ -1,16 +1,16 @@
 ## 📌 Nota
 
-### 📂 Ruta de la documentación — Documento de clase Lunes 13 de Abril (Semana 10)
+### 📂 Ruta de la documentación — Documento de clase Lunes 20 de Abril (Semana 12)
 
 ```
-main/reportes/reporte-10/
+main/reportes/reporte-12/
 ```
 
-En esta carpeta se puede consultar la documentación correspondiente al **Documento clase Lunes 13 de Abril - Semana 10**.
+En esta carpeta se puede consultar la documentación correspondiente al **Documento clase Lunes 20 de Abril - Semana 12**.
 
 Los archivos disponibles son:
 
-- **reporte_semana_10.docx** → Documento principal del reporte.
+- **reporte_semana_12.docx** → Documento principal del reporte.
 - **README.md** → Información y explicación adicional del contenido del reporte.
 
 ---
