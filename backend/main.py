@@ -1,15 +1,30 @@
 from fastapi import FastAPI, HTTPException
-from typing import List
-# Importamos todo lo que construimos en el models
+# ... después de fachada = FachadaGaleria(sistema)
+
 from models import (
     inventariosistema, fabricafisica, fabricadigital, obrabuilder,
     adaptadorartesubasta, reporteinventario, formatopdf, formatoexcel,
-    ColeccionArte, FachadaGaleria
+    ColeccionArte, FachadaGaleria, ProxyFachada ,FlyweightFactory
 )
+from typing import List
+# Importamos todo lo que construimos en el models
+
 
 app = FastAPI(title="Galería de Arte UTS - Sistema Multifuncional")
 sistema = inventariosistema()
 fachada = FachadaGaleria(sistema)
+proxy_seguro = ProxyFachada(fachada)
+
+# --- El nuevo Endpoint del Proxy ---
+@app.post("/registro_protegido_proxy", tags=["Estructurales"])
+def registro_proxy(token: str, id: int, nombre: str, artista: str, precio: int, tipo: str, extra: str):
+    # El cliente ahora le pide al Proxy, no a la Fachada
+    resultado = proxy_seguro.peticion_segura(token, id, nombre, artista, precio, tipo, extra)
+    
+    if "error" in resultado:
+        raise HTTPException(status_code=403, detail=resultado["error"])
+    
+    return resultado
 
 
 
@@ -116,3 +131,36 @@ def eliminar_obra(obra_id: int):
     sistema.lista_obras = [o for o in sistema.lista_obras if o.id != obra_id]
     sistema.guardar_datos()
     return {"mensaje": f"Obra {obra_id} eliminada"}
+
+
+# 8. PATRÓN PROXY Acceso controlado a la Fachada
+@app.post("/registro_seguro_con_proxy", tags=["Estructurales"])
+def registro_con_proxy(token: str, id: int, nombre: str, artista: str, precio: int, tipo: str, extra: str):
+    # Usa peticion_segura que es como lo defininos en el models
+    resultado = proxy_seguro.peticion_segura(token, id, nombre, artista, precio, tipo, extra)
+    
+    if isinstance(resultado, dict) and "error" in resultado:
+        raise HTTPException(status_code=403, detail=resultado["error"])
+        
+    return resultado
+
+
+
+
+# 9. PATRÓN FLYWEIGHT (Ahorro de memoria)
+@app.get("/demo_optimizacion_flyweight", tags=["Estructurales"])
+def demo_flyweight():
+    # Pedimos la misma licencia varias veces
+    l1 = FlyweightFactory.obtener_licencia("Comercial")
+    l2 = FlyweightFactory.obtener_licencia("Comercial") # Aquí se reutiliza
+    l3 = FlyweightFactory.obtener_licencia("Educativa")
+    
+    return {
+        "mensaje": "Demostración de Flyweight",
+        "objetos_en_memoria": {
+            "licencia_1_id": id(l1),
+            "licencia_2_id": id(l2),
+            "resultado": "Es el mismo objeto" if l1 is l2 else "Son diferentes"
+        },
+        "nota": "Fíjate en la consola de Python; verás que solo se 'creó' una vez la comercial."
+    }

@@ -65,7 +65,6 @@ class ColeccionArte(ComponenteArte):
         self.nombre = nombre_coleccion
         self.componentes = []  # Lista que puede contener obras u otras colecciones
         self.categoria = "coleccion"
-
     def agregar(self, componente: ComponenteArte):
         self.componentes.append(componente)
 
@@ -125,6 +124,30 @@ class fabricadigital:
     @staticmethod
     def crear(id, nombre, artista, stock, precio, extra):
         return obradigital(id, nombre, artista, stock, precio, extra)
+
+
+# --- PATRÓN FLYWEIGHT (Compartir datos pesados) ---
+class ContratoLegalFlyweight:
+    """Estado Intrínseco: Datos que no cambian entre muchas obras"""
+    def __init__(self, tipo_licencia: str, términos: str):
+        self.tipo_licencia = tipo_licencia
+        self.términos = términos
+
+class FlyweightFactory:
+    """Fábrica que gestiona la reutilización de objetos"""
+    _licencias = {}
+
+    @classmethod
+    def obtener_licencia(cls, tipo_licencia: str):
+        if tipo_licencia not in cls._licencias:
+            print(f"FLYWEIGHT: Creando nueva licencia legal para '{tipo_licencia}'")
+            # Simulamos un texto pesado que no queremos repetir en RAM
+            terminos_pesados = f"Contrato estándar para {tipo_licencia}. Prohibida su reproducción total..."
+            cls._licencias[tipo_licencia] = ContratoLegalFlyweight(tipo_licencia, terminos_pesados)
+        else:
+            print(f"FLYWEIGHT: Reutilizando licencia existente de '{tipo_licencia}'")
+        
+        return cls._licencias[tipo_licencia]
 
 
 
@@ -321,3 +344,23 @@ class FachadaGaleria:
             "reporte_automatico": comprobante,
             "detalle_seguro": f"Seguro aplicado: ${valor_seguro} USD"
         }
+    
+
+
+
+    # --- PATRÓN PROXY El Intermediario de Seguridad ---
+class ProxyFachada:
+    def __init__(self, fachada_real: FachadaGaleria):
+        self._fachada_real = fachada_real
+        self._token_secreto = "UTSAD"
+
+    def peticion_segura(self, token: str, id, nombre, artista, precio, tipo, extra):
+        # 1. Control de Acceso (Verificación)
+        if token != self._token_secreto:
+            return {"error": "403 - Acceso Denegado", "detalle": "Token incorrecto"}
+        
+        # 2. Logging (Registro de quién entra)
+        print(f"Proxy: Acceso autorizado para la obra '{nombre}'")
+        
+        # 3. Delegación (Llamar a la fachada real)
+        return self._fachada_real.registro_premium_total(id, nombre, artista, precio, tipo, extra)

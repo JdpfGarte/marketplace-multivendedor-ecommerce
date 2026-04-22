@@ -116,5 +116,67 @@
         "seguro": "asegurado por 125 usd",
         "sello": "ORIGINAL-D4FBF061",
         "dimensiones": "12cm"
+    },
+    {
+        "id": 9,
+        "obra": "prue1",
+        "artista": "coco",
+        "stock": 1,
+        "precio": 7000,
+        "categoria": "digital",
+        "certificado": true,
+        "empaque_regalo": false,
+        "edicion": 1,
+        "seguro": "asegurado por 3500 usd",
+        "sello": "ORIGINAL-0FF49311",
+        "formato": "png"
+    },
+    {
+        "id": 10,
+        "obra": "prue2",
+        "artista": "coco",
+        "stock": 1,
+        "precio": 500,
+        "categoria": "fisico",
+        "certificado": true,
+        "empaque_regalo": true,
+        "edicion": 1,
+        "seguro": "asegurado por 125 usd",
+        "sello": "ORIGINAL-397D0FE4",
+        "dimensiones": "12cm"
+    },
+    {
+        "id": 456,
+        "nombre": "PRUE456",
+        "componentes": [],
+        "categoria": "coleccion"
+    },
+    {
+        "id": 1,
+        "obra": "carlotaR",
+        "artista": "juzn",
+        "stock": 1,
+        "precio": 6000,
+        "categoria": "digital",
+        "certificado": true,
+        "empaque_regalo": false,
+        "edicion": 1,
+        "seguro": "asegurado por 3000 usd",
+        "sello": "ORIGINAL-56A398B4",
+        "formato": "png"
+    },
+    {
+        "id": 14,
+        "obra": "colanT",
+        "artista": "juzn",
+        "stock": 1,
+        "precio": 6000,
+        "categoria": "digital",
+        "certificado": true,
+        "empaque_regalo": false,
+        "edicion": 1,
+        "seguro": "asegurado por 3000 usd",
+        "sello": "ORIGINAL-FEB261AB",
+        "formato": "png"
     }
 ]
