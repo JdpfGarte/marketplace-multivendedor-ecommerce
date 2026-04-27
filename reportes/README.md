@@ -27,6 +27,7 @@ Estos documentos sirven como **registro del proceso de desarrollo del proyecto**
 | 8 | [Abrir](reporte-8/) | [Reporte](reporte-8/reporte_semana_8.docx) |
 | 10 | [Abrir](reporte-10/) | [Reporte](reporte-10/reporte_semana_10.docx) |
 | 12 | [Abrir](reporte-12/) | [Reporte](reporte-12/reporte_semana_12.docx) |
+| 14 | [Abrir](reporte-14/) | [Reporte](reporte-14/reporte_semana_14.docx) |
 
 ---
 
