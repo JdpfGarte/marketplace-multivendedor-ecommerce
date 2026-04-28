@@ -1,9 +1,9 @@
 <div align="center">
 
-# 📊 Reporte Semana 12  
+# 📊 Reporte Semana 14  
 ### Marketplace Multivendedor Ecommerce
 
-![Report](https://img.shields.io/badge/Report-Week%2012-blue)  
+![Report](https://img.shields.io/badge/Report-Week%2014-blue)  
 ![Project](https://img.shields.io/badge/Project-Academic-lightgrey)
 
 </div>
@@ -140,7 +140,7 @@
 
 # 📘 Introducción
 
-En la semana 12 se amplió el sistema mediante la implementación de dos patrones estructurales clave:
+En la semana 14 se amplió el sistema mediante la implementación de dos patrones estructurales clave:
 
 🔐 Proxy → Control de acceso seguro al sistema  
 ⚡ Flyweight → Optimización de memoria mediante reutilización de objetos  
