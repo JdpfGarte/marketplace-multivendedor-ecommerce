@@ -4,7 +4,9 @@ from fastapi import FastAPI, HTTPException
 from models import (
     inventariosistema, fabricafisica, fabricadigital, obrabuilder,
     adaptadorartesubasta, reporteinventario, formatopdf, formatoexcel,
-    ColeccionArte, FachadaGaleria, ProxyFachada ,FlyweightFactory
+    ColeccionArte, FachadaGaleria, ProxyFachada ,FlyweightFactory,PagoPasarelaEstandar, 
+    PagoTransferenciaDirecta, PagoCriptoNFT,ColeccionistaSeguidor, AdministradorPlataforma,
+     GestorNotificacionesObra,ComandoComprarObra
 )
 from typing import List
 # Importamos todo lo que construimos en el models
@@ -126,6 +128,7 @@ def registro_facade(id: int, nombre: str, artista: str, precio: int, tipo: str, 
 def obtener_catalogo():
     return {"galeria": [o.__dict__ for o in sistema.lista_obras]}
 
+
 @app.delete("/eliminar_obra/{obra_id}", tags=["Sistema"])
 def eliminar_obra(obra_id: int):
     sistema.lista_obras = [o for o in sistema.lista_obras if o.id != obra_id]
@@ -163,4 +166,148 @@ def demo_flyweight():
             "resultado": "Es el mismo objeto" if l1 is l2 else "Son diferentes"
         },
         "nota": "Fíjate en la consola de Python; verás que solo se 'creó' una vez la comercial."
+    }
+
+
+# 10. PATRÓN STATE (Simular la compra y cambio de comportamiento)
+@app.post("/gestionar_ciclo_vida_state/{obra_id}", tags=["Comportamiento"])
+def comprar_o_descontar_obra_patron_state(obra_id: int, accion: str = "comprar", descuento_porcentaje: float = 10.0):
+    obra_obj = next((o for o in sistema.lista_obras if o.id == obra_id), None)
+    if not obra_obj:
+        raise HTTPException(status_code=404, detail="Obra no encontrada en el catálogo")
+    
+    # Comprobamos qué acción quiere ejecutar el cliente en el Marketplace
+    if accion.lower() == "comprar":
+        resultado = obra_obj.comprar_obra()
+    elif accion.lower() == "descuento":
+        resultado = obra_obj.rebajar_precio(descuento_porcentaje)
+    else:
+        raise HTTPException(status_code=400, detail="Acción no válida. Usa 'comprar' o 'descuento'")
+    
+    sistema.guardar_datos() # Persistimos el nuevo estado con el Singleton
+    
+    return {
+        "obra": obra_obj.obra,
+        "artista": obra_obj.artista,
+        "precio_actual": obra_obj.precio,
+        "stock_restante": obra_obj.stock,
+        "estado_en_sistema": str(obra_obj.estado_actual.__class__.__name__),
+        "resultado_operacion": resultado
+    }
+
+
+
+# 11. PATRÓN STRATEGY (Calcular totales de pago dinámicamente 
+@app.get("/calcular_pago_strategy/{obra_id}", tags=["Comportamiento"])
+def calcular_pago_obra_patron_strategy(obra_id: int, metodo_pago: str = "pasarela"):
+    obra_obj = next((o for o in sistema.lista_obras if o.id == obra_id), None)
+    if not obra_obj:
+        raise HTTPException(status_code=404, detail="Obra no encontrada")
+
+    # Selección dinámica de la estrategia
+    if metodo_pago.lower() == "pasarela":
+        estrategia = PagoPasarelaEstandar()
+    elif metodo_pago.lower() == "transferencia":
+        estrategia = PagoTransferenciaDirecta()
+    elif metodo_pago.lower() == "cripto":
+        estrategia = PagoCriptoNFT()
+    else:
+        raise HTTPException(status_code=400, detail="Método de pago no soportado. Usa 'pasarela', 'transferencia' o 'cripto'")
+
+    # Extraemos el precio convirtiéndolo a flotante de forma segura
+    precio_base = float(obra_obj.precio)
+
+    # Ejecutamos el algoritmo de la estrategia elegida
+    liquidacion = estrategia.calcular_total(precio_base)
+
+    return {
+        "obra_id": obra_obj.id,
+        "titulo_obra": getattr(obra_obj, 'obra', 'Sin título'),
+        "artista": getattr(obra_obj, 'artista', 'Anónimo'),
+        "liquidacion_detallada": liquidacion
+    }
+
+
+
+
+# 14. PATRÓN OBSERVER (Notificar cambios de la obra a seguidores)
+@app.post("/simular_notificacion_observer/{obra_id}", tags=["Comportamiento"])
+def simular_alerta_obra_patron_observer(obra_id: int, evento: str = "cambio_precio"):
+    obra_obj = next((o for o in sistema.lista_obras if o.id == obra_id), None)
+    if not obra_obj:
+        raise HTTPException(status_code=404, detail="Obra no encontrada")
+
+    # Creamos el canal del sujeto (Observer)
+    canal = GestorNotificacionesObra()
+
+    # Suscribimos dinámicamente a los interesados
+    cliente_vip = ColeccionistaSeguidor("Carlos_Bucaramanga")
+    admin_sistema = AdministradorPlataforma()
+
+    canal.suscribir(cliente_vip)
+    canal.suscribir(admin_sistema)
+
+    # Redactamos el mensaje según lo que pasó en el Marketplace
+    if evento == "cambio_precio":
+        mensaje = f"La obra '{obra_obj.obra}' cambió su precio comercial a ${obra_obj.precio} USD."
+    elif evento == "vendida":
+        mensaje = f"¡URGENTE! La pieza única '{obra_obj.obra}' ha sido vendida. Retirar de vitrinas."
+    else:
+        mensaje = f"Nueva actualización en la obra '{obra_obj.obra}'."
+
+    # El sujeto le avisa a todos de golpe
+    alertas_enviadas = canal.notificar_todos(mensaje)
+
+    return {
+        "obra_monitoreada": obra_obj.obra,
+        "evento_ocurrido": evento,
+        "cantidad_notificados": len(alertas_enviadas),
+        "registro_de_alertas": alertas_enviadas
+    }
+
+
+# Variable global temporal para pruebas del Rollback
+ultimo_comando_ejecutado = {}
+
+# 15. PATRÓN COMMAND (Ejecutar compra encapsulada)
+@app.post("/procesar_compra_command/{obra_id}", tags=["Comportamiento"])
+def comprar_con_comando(obra_id: int):
+    global ultimo_comando_ejecutado
+    
+    # Encapsulamos la petición en un objeto comando
+    comando = ComandoComprarObra(sistema, obra_id)
+    resultado = comando.ejecutar()
+    
+    if "Error" in resultado:
+        raise HTTPException(status_code=400, detail=resultado)
+        
+    # Guardamos el objeto comando en memoria para poder revertirlo si se requiere
+    ultimo_comando_ejecutado[obra_id] = comando
+    sistema.guardar_datos()
+    
+    return {
+        "transaccion": "Comando Recibido",
+        "resultado_ejecucion": resultado,
+        "ayuda": "Si simulas un fallo en el pago, puedes llamar al endpoint de deshacer."
+    }
+
+# 16. PATRÓN COMMAND (Deshacer / Rollback de la compra)
+@app.post("/deshacer_compra_command/{obra_id}", tags=["Comportamiento"])
+def deshacer_con_comando(obra_id: int):
+    global ultimo_comando_ejecutado
+    
+    comando = ultimo_comando_ejecutado.get(obra_id)
+    if not comando:
+        raise HTTPException(status_code=400, detail="No hay una transacción reciente que se pueda revertir para este ID.")
+        
+    # Llamamos al método deshacer del objeto guardado
+    resultado_rollback = comando.deshacer()
+    
+    # Limpiamos el historial de esa obra
+    del ultimo_comando_ejecutado[obra_id]
+    sistema.guardar_datos()
+    
+    return {
+        "transaccion": "Rollback Exitoso",
+        "detalle_sistema": resultado_rollback
     }

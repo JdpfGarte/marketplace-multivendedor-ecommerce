@@ -30,6 +30,7 @@ class obra(ComponenteArte):
         self.edicion = 1
         self.seguro = "sin seguro"
         self.sello = f"ORIGINAL-{uuid.uuid4().hex[:8].upper()}"
+        self.estado_actual = EstadoDisponible()
 
     def obtener_precio(self) -> float:
         # Si el seguro tiene un valor numérico lo sumaría, 
@@ -45,6 +46,17 @@ class obra(ComponenteArte):
         nueva_copia.edicion += 1
         nueva_copia.sello = f"COPIA-LEGAL-{uuid.uuid4().hex[:8].upper()}"
         return nueva_copia
+
+    
+
+
+    def comprar_obra(self):
+        # Delega el comportamiento al patrón State
+        return self.estado_actual.cambiar_disponibilidad(self)
+
+    def rebajar_precio(self, porcentaje: float):
+        # Delega el comportamiento al patrón State
+        return self.estado_actual.aplicar_oferta(self, porcentaje)
 
 class obrafisica(obra):
     def __init__(self, id, nombre, artista, stock, precio, dimensiones):
@@ -364,3 +376,176 @@ class ProxyFachada:
         
         # 3. Delegación (Llamar a la fachada real)
         return self._fachada_real.registro_premium_total(id, nombre, artista, precio, tipo, extra)
+
+
+
+#  PATRÓN STATE (Ciclo de Vida) 
+# ==========================================
+
+class EstadoObra(ABC):
+    @abstractmethod
+    def cambiar_disponibilidad(self, obra_contexto) -> str: pass
+    
+    @abstractmethod
+    def aplicar_oferta(self, obra_contexto, porcentaje_descuento: float) -> str: pass
+
+
+class EstadoDisponible(EstadoObra):
+    def cambiar_disponibilidad(self, obra_contexto) -> str:
+        obra_contexto.estado_actual = EstadoVendido()
+        obra_contexto.stock = 0  # Regla de negocio: si se vende, stock a 0
+        return "Éxito: La obra ha sido adquirida y pasó a estado VENDIDA."
+
+    def aplicar_oferta(self, obra_contexto, porcentaje_descuento: float) -> str:
+        # Permite aplicar descuentos si está disponible
+        precio_original = obra_contexto.precio
+        obra_contexto.precio = round(precio_original * (1 - (porcentaje_descuento / 100)), 2)
+        return f"Descuento aplicado con éxito. Precio anterior: ${precio_original} USD, Nuevo precio: ${obra_contexto.precio} USD."
+
+
+class EstadoVendido(EstadoObra):
+    def cambiar_disponibilidad(self, obra_contexto) -> str:
+        return "Error: No se puede comprar. Esta obra ya fue VENDIDA a otro coleccionista."
+
+    def aplicar_oferta(self, obra_contexto, porcentaje_descuento: float) -> str:
+        return "Error: No se pueden aplicar descuentos a una obra que ya fue VENDIDA."
+    
+
+
+
+
+
+    
+# PATRÓN STRATEGY (Liquidación) ---
+# ============================================
+
+class EstrategiaPago(ABC):
+    @abstractmethod
+    def calcular_total(self, precio_base: float) -> dict: pass
+
+
+class PagoPasarelaEstandar(EstrategiaPago):
+    def calcular_total(self, precio_base: float) -> dict:
+        # Regla: 10% de comisión para la plataforma
+        comision = round(precio_base * 0.10, 2)
+        total = round(precio_base + comision, 2)
+        return {
+            "metodo": "Pasarela de Pago Estándar (Tarjeta/PSE)",
+            "precio_obra": precio_base,
+            "comision_plataforma": comision,
+            "cargos_extra": 0.0,
+            "total_a_pagar": total
+        }
+
+
+class PagoTransferenciaDirecta(EstrategiaPago):
+    def calcular_total(self, precio_base: float) -> dict:
+        # Regla: 2% de comisión + $5 USD fijos por manejo seguro de la pieza de arte
+        comision = round(precio_base * 0.02, 2)
+        manejo_seguro = 5.0
+        total = round(precio_base + comision + manejo_seguro, 2)
+        return {
+            "metodo": "Transferencia Bancaria Directa",
+            "precio_obra": precio_base,
+            "comision_plataforma": comision,
+            "cargos_extra": manejo_seguro,
+            "total_a_pagar": total
+        }
+
+
+class PagoCriptoNFT(EstrategiaPago):
+    def calcular_total(self, precio_base: float) -> dict:
+        # Regla: Tarifa plana de red (Gas Fee) fija de $15 USD, sin comisión porcentual
+        gas_fee = 15.0
+        total = round(precio_base + gas_fee, 2)
+        return {
+            "metodo": "Liquidación Cripto (Red Blockchain)",
+            "precio_obra": precio_base,
+            "comision_plataforma": 0.0,
+            "cargos_extra": gas_fee,
+            "total_a_pagar": total
+        }
+    
+
+
+
+#  PATRÓN OBSERVER (Alertas) 
+# ==========================================
+
+class InteresadoObserver(ABC):
+    @abstractmethod
+    def actualizar(self, mensaje: str) -> str: pass
+
+
+class ColeccionistaSeguidor(InteresadoObserver):
+    def __init__(self, nombre_usuario: str):
+        self.nombre = nombre_usuario
+
+    def actualizar(self, mensaje: str) -> str:
+        return f"NOTIFICACIÓN PARA CLIENTE [{self.nombre}]: {mensaje}"
+
+
+class AdministradorPlataforma(InteresadoObserver):
+    def actualizar(self, mensaje: str) -> str:
+        return f"ALERTA DEL SISTEMA [ADMIN]: {mensaje}"
+
+
+# El sujeto que será observado (Canal de Notificaciones de la Obra)
+class GestorNotificacionesObra:
+    def __init__(self):
+        self._observadores = []
+
+    def suscribir(self, observador: InteresadoObserver):
+        if observador not in self._observadores:
+            self._observadores.append(observador)
+
+    def desuscribir(self, observador: InteresadoObserver):
+        self._observadores.remove(observador)
+
+    def notificar_todos(self, mensaje: str) -> list:
+        respuestas = []
+        for obs in self._observadores:
+            respuestas.append(obs.actualizar(mensaje))
+        return respuestas
+
+
+
+
+# --- NUEVO: PATRÓN COMMAND (Transacciones) -
+# ==========================================
+
+class ComandoTransaccion(ABC):
+    @abstractmethod
+    def ejecutar(self) -> str: pass
+
+    @abstractmethod
+    def deshacer(self) -> str: pass
+
+
+class ComandoComprarObra(ComandoTransaccion):
+    def __init__(self, inventario, obra_id: int):
+        self.inventario = inventario
+        self.obra_id = obra_id
+        self.obra_afectada = None
+
+    def ejecutar(self) -> str:
+        # Buscamos la obra en el Singleton
+        obra_obj = next((o for o in self.inventario.lista_obras if o.id == self.obra_id), None)
+        if not obra_obj:
+            return "Error: Obra no encontrada."
+        
+        # Guardamos la referencia por si toca revertir
+        self.obra_afectada = obra_obj
+        
+        # Ejecuta la compra usando el método interno que ya tiene la obra
+        resultado = obra_obj.comprar_obra()
+        return resultado
+
+    def deshacer(self) -> str:
+        if self.obra_afectada:
+            # Revertimos el stock y reiniciamos su estado a disponible de forma segura
+            self.obra_afectada.stock = 1
+            from models import EstadoDisponible
+            self.obra_afectada.estado_actual = EstadoDisponible()
+            return f"Rollback Transaccional: Se restauró la obra '{self.obra_afectada.obra}' a Disponible."
+        return "Error: No hay ninguna operación previa para revertir."

@@ -3,14 +3,15 @@
         "id": 2,
         "obra": "sdasad",
         "artista": "fsdfs",
-        "stock": 2,
-        "precio": 3000,
+        "stock": 0,
+        "precio": 2700.0,
         "categoria": "fisico",
         "certificado": true,
         "empaque_regalo": true,
         "edicion": 1,
         "seguro": "asegurado por 234 usd",
         "sello": "ORIGINAL-D687AB13",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E013310>",
         "dimensiones": "3cm"
     },
     {
@@ -25,6 +26,7 @@
         "edicion": 2,
         "seguro": "asegurado por 234 usd",
         "sello": "COPIA-LEGAL-8D4EF416",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E013290>",
         "dimensiones": "3cm"
     },
     {
@@ -45,6 +47,7 @@
         "edicion": 1,
         "seguro": "asegurado por 1000 usd",
         "sello": "ORIGINAL-152F2471",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E013210>",
         "formato": "png"
     },
     {
@@ -59,6 +62,7 @@
         "edicion": 1,
         "seguro": "asegurado por 500 usd",
         "sello": "ORIGINAL-79625EFF",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779CD0AFD0>",
         "dimensiones": "5cm"
     },
     {
@@ -73,6 +77,7 @@
         "edicion": 1,
         "seguro": "asegurado por 125 usd",
         "sello": "ORIGINAL-144DD424",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E0130D0>",
         "dimensiones": "4cm"
     },
     {
@@ -87,6 +92,7 @@
         "edicion": 1,
         "seguro": "asegurado por 3000 usd",
         "sello": "ORIGINAL-2B6D1EB1",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E013050>",
         "dimensiones": "8cm"
     },
     {
@@ -101,6 +107,7 @@
         "edicion": 1,
         "seguro": "asegurado por 3500 usd",
         "sello": "ORIGINAL-7117060D",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E012FD0>",
         "formato": "png"
     },
     {
@@ -115,6 +122,7 @@
         "edicion": 1,
         "seguro": "asegurado por 125 usd",
         "sello": "ORIGINAL-D4FBF061",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E012F50>",
         "dimensiones": "12cm"
     },
     {
@@ -129,6 +137,7 @@
         "edicion": 1,
         "seguro": "asegurado por 3500 usd",
         "sello": "ORIGINAL-0FF49311",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E012F10>",
         "formato": "png"
     },
     {
@@ -143,6 +152,7 @@
         "edicion": 1,
         "seguro": "asegurado por 125 usd",
         "sello": "ORIGINAL-397D0FE4",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E012E90>",
         "dimensiones": "12cm"
     },
     {
@@ -163,6 +173,7 @@
         "edicion": 1,
         "seguro": "asegurado por 3000 usd",
         "sello": "ORIGINAL-56A398B4",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E012D90>",
         "formato": "png"
     },
     {
@@ -177,6 +188,43 @@
         "edicion": 1,
         "seguro": "asegurado por 3000 usd",
         "sello": "ORIGINAL-FEB261AB",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E012CD0>",
         "formato": "png"
+    },
+    {
+        "id": 15,
+        "obra": "cortaserpe",
+        "artista": "cvb",
+        "stock": 1,
+        "precio": 5000,
+        "categoria": "digital",
+        "certificado": true,
+        "empaque_regalo": false,
+        "edicion": 1,
+        "seguro": "asegurado por 2500 usd",
+        "sello": "ORIGINAL-DDC657F4",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E012C10>",
+        "formato": "png"
+    },
+    {
+        "id": 16,
+        "nombre": "prueba 2",
+        "componentes": [],
+        "categoria": "coleccion"
+    },
+    {
+        "id": 16,
+        "obra": "dff",
+        "artista": "carlos",
+        "stock": 1,
+        "precio": 6000,
+        "categoria": "fisico",
+        "certificado": true,
+        "empaque_regalo": true,
+        "edicion": 1,
+        "seguro": "asegurado por 3000 usd",
+        "sello": "ORIGINAL-B37231AB",
+        "estado_actual": "<models.EstadoDisponible object at 0x000002779E012AD0>",
+        "dimensiones": "23cm"
     }
 ]
