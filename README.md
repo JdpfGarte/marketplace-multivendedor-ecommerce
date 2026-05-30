@@ -1,16 +1,18 @@
 ## 📌 Nota
 
-### 📂 Ruta de la documentación — Documento de PARCIAL Lunes 27 de Abril (Semana 14)
+### 📂 Ruta de la documentación — Documento de Clase Lunes 01 de Junio
 
 ```
-main/reportes/reporte-14/
+main/reportes/implementacion 4 patrones 2.pdf
+main/reportes/informe memento.pdf
 ```
 
-En esta carpeta se puede consultar la documentación correspondiente al **Documento PARCIAL Lunes 27 de Abril - Semana 14**.
+En esta carpeta se puede consultar la documentación correspondiente al **Documento Clase Lunes 01 de Junio**.
 
 Los archivos disponibles son:
 
-- **reporte_semana_14.docx** → Documento principal del reporte.
+- **implementacion 4 patrones 2.pdf** → Documento principal del reporte.
+- **informe memento.pdf** → Documento principal del reporte.
 - **README.md** → Información y explicación adicional del contenido del reporte.
 
 ---
