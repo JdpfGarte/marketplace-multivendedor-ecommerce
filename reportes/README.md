@@ -5,7 +5,7 @@
 
 Esta carpeta contiene los **reportes de avance del proyecto** realizados durante el desarrollo del sistema.
 
-Enlace de descarga del proyecto: https://www.mediafire.com/file/uu24xhi4n600by4/TrabajoPatrones+(2).zip/file
+Enlace de descarga del proyecto: [https://www.mediafire.com/file/uu24xhi4n600by4/TrabajoPatrones+(2).zip/file](https://drive.google.com/file/d/1AS6DlZwvo17Ns46_DYIa02D4gfd-ZPsG/view?usp=sharing)
 
 Los reportes documentan el progreso del proyecto, incluyendo:
 
